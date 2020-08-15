@@ -14,6 +14,7 @@ import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
 
 public class LoginFrame extends JFrame implements ActionListener {
+
     JButton exit = new JButton("退出");
     JButton login=new JButton("登录");
     JLabel name = new JLabel("用户名");
@@ -30,12 +31,10 @@ public class LoginFrame extends JFrame implements ActionListener {
         getContentPane().add(name);
         getContentPane().setLayout(null);
 
-
         username = new JTextField();
         username.setBounds(178, 160, 240, 42);
         username.setFont(new Font("", Font.BOLD, 24));
         getContentPane().add(username);
-
 
         password = new JLabel("密码");
         password.setBounds(78, 214, 120, 30);
@@ -79,6 +78,7 @@ public class LoginFrame extends JFrame implements ActionListener {
 
         login.addActionListener(this);
         exit.addActionListener(this);
+        setVisible(true);
 
     }
 
@@ -88,12 +88,13 @@ public class LoginFrame extends JFrame implements ActionListener {
             System.exit(0);
         } else {
             if (username.getText().equals("username") && String.valueOf(ipassword.getPassword()).equals("180580219")) {
-                SetJScrollPane setJScrollPane=new SetJScrollPane();
-                dispose();
-                setJScrollPane.setVisible(true);
             } else {
                 JOptionPane.showMessageDialog(null, "用户名或密码错误");
             }
         }
+    }
+
+    public static void main(String[] args) {
+        new LoginFrame();
     }
 }

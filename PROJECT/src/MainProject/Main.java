@@ -1,7 +1,6 @@
 package MainProject;
 
 import VIEW.LoginFrame;
-import VIEW.SetJScrollPane;
 
 /**
  * @ClassName Main
@@ -14,7 +13,5 @@ public class Main {
         LoginFrame window=new LoginFrame();
         window.setVisible(true);
 
-        SetJScrollPane setJScrollPane=new SetJScrollPane();
-        setJScrollPane.setVisible(true);
     }
 }

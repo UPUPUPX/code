@@ -14,14 +14,14 @@ import java.awt.event.ActionListener;
  */
 public class LoginView extends JFrame implements ActionListener {
 
-        JButton exit = new JButton("退出");
-        JButton login=new JButton("登录");
-        JLabel name = new JLabel("用户名");
-        JLabel password = new JLabel("密码");
-        JTextField username = new JTextField();
-        JPasswordField ipassword = new JPasswordField();
-        JLabel lab1 = new JLabel();
-        JLabel lab2=new JLabel();
+        JButton register ;
+        JButton login;
+        JButton forgetPasswd;
+        JButton jButton;
+        JLabel name;
+        JLabel password ;
+        JTextField username;
+        JPasswordField ipassword ;
 
         public LoginView() {
             name = new JLabel("用户名");
@@ -45,23 +45,35 @@ public class LoginView extends JFrame implements ActionListener {
             ipassword.setFont(new Font("", Font.BOLD, 24));
             getContentPane().add(ipassword);
 
-            exit = new JButton("退出");
-            exit.setText("退出");
-            exit.setBounds(282, 262, 136, 46);
-            getContentPane().add(exit);
+            forgetPasswd.setBounds(400, 214, 100, 30);
+            getContentPane().add(forgetPasswd);
+            forgetPasswd.setBorderPainted(false);
+            forgetPasswd.setFocusPainted(false);
+            forgetPasswd.setContentAreaFilled(false);
+            forgetPasswd.addActionListener(this::actionPerformed);
+
+            register = new JButton("注册");
+            register.setText("注册");
+            register.setBounds(282, 262, 136, 46);
+            getContentPane().add(register);
+            register.setFocusPainted(false);
 
             login = new JButton("登录");
             login.setText("登录");
             login.setBounds(134, 262, 136, 46);
             getContentPane().add(login);
+            login.setFocusPainted(false);
 
-            lab1 = new JLabel();
-            lab1.setBorder(new TitledBorder(null, "", TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, null, null));
-            lab1.setForeground(new Color(255, 0, 0));
-            lab1.setFont(new Font("", Font.BOLD, 36));
-            lab1.setText("登录到我的文本银行");
-            lab1.setBounds(78, 56,340, 72);
-            getContentPane().add(lab1);
+            jButton = new JButton();
+            jButton.setBorder(new TitledBorder(null, "", TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, null, null));
+            jButton.setForeground(new Color(255, 0, 0));
+            jButton.setFont(new Font("", Font.BOLD, 36));
+            jButton.setText("登录到我的文本银行");
+            jButton.setBounds(78, 56,340, 72);
+            jButton.setBorderPainted(false);
+            jButton.setFocusPainted(false);
+            jButton.setContentAreaFilled(false);
+            getContentPane().add(jButton);
 
             setTitle("登录窗口");
             setBounds(200, 200, 560, 420);
@@ -69,27 +81,34 @@ public class LoginView extends JFrame implements ActionListener {
             setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
             login.addActionListener(this);
-            exit.addActionListener(this);
+            register.addActionListener(this);
             setVisible(true);
         }
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            if (e.getSource() == exit) {
-                System.exit(0);
+            if (e.getSource() == register) {
+
             } else {
                 if (username.getText().equals("username") && String.valueOf(ipassword.getPassword()).equals("180580219")) {
                     /*
                     * 跳转界面
                     * */
-                } else {
+                } else if (e.getSource() == forgetPasswd){
+                    /*
+                     * 跳转界面
+                     * */
+                } else if(e.getSource()==login){
+                    BankView bankView = new BankView();
+                    bankView.setVisible(true);
+                } else{
                     JOptionPane.showMessageDialog(null, "用户名或密码错误");
                 }
             }
         }
-
+/*
         public static void main(String[] args) {
             new LoginView();
-        }
+        }*/
 }
 

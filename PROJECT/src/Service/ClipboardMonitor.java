@@ -1,10 +1,12 @@
 package Service;
 
 
-import javax.swing.*;
+import DataBaseOperator.DataOperator;
+
 import java.awt.*;
 import java.awt.datatransfer.*;
 import java.io.IOException;
+import java.sql.SQLException;
 
 /**
  * @ClassName Monitoe
@@ -15,12 +17,14 @@ import java.io.IOException;
 class ClipboardMonitor implements ClipboardOwner{
 
     private Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+    private boolean flag=false;
 
     public ClipboardMonitor(){
         if (clipboard.isDataFlavorAvailable(DataFlavor.stringFlavor)){
             clipboard.setContents(clipboard.getContents(null), this);
         }
     }
+
 
     @Override
     public void lostOwnership(Clipboard clipboard, Transferable contents) {
@@ -40,8 +44,16 @@ class ClipboardMonitor implements ClipboardOwner{
                 e.printStackTrace();
             }
         }
-        
+        DataOperator dataOperator=new DataOperator();
+        try {
+            flag=true;
+            dataOperator.Insert(str);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
         StringSelection tmp = new StringSelection(str);
         clipboard.setContents(tmp, this);
     }
+
+    public boolean getflag(){ return flag; }
 }

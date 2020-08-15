@@ -1,9 +1,8 @@
 package DataBaseOperator;
 
-import javax.xml.crypto.Data;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
@@ -32,16 +31,4 @@ public class DataOperator {
         ps.executeUpdate();
         conn.close();
     }
-    /*public String search() throws SQLException {
-        String sql = "select * from datasource where ID=?";
-        Connection conn = DBUtil.getConn();
-        PreparedStatement ps = conn.prepareStatement(sql);
-        ps.setString(1,phone);
-        ResultSet rs = ps.executeQuery();
-        if (rs.next()) {
-
-        } else{
-            return null;
-        }
-    }*/
 }

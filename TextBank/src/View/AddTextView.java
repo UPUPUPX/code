@@ -1,11 +1,15 @@
 package View;
 
+import DataService.Data;
+import DataService.DataOperator;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.sql.SQLException;
 
 /**
  * @ClassName AddTextView
@@ -17,9 +21,11 @@ public class AddTextView extends JFrame implements ActionListener {
     JFrame jFrame;
     JPanel jpanel;
     JButton saveButton;
+    JScrollPane jscrollPane;
+    Data data=new Data();
     private JTextArea jTextArea;
 
-    public AddTextView() {
+    public AddTextView(int id) {
         super();
         jFrame = new JFrame("请输入要保存的文本");
         jFrame.setSize(600, 420);
@@ -29,7 +35,6 @@ public class AddTextView extends JFrame implements ActionListener {
         
         final JPanel panel = new JPanel();
         jTextArea = new JTextArea();
-        JScrollPane jscrollPane=new JScrollPane();
 
         panel.add(jTextArea);
         getContentPane().add(jTextArea);
@@ -43,6 +48,7 @@ public class AddTextView extends JFrame implements ActionListener {
 
         saveButton = new JButton("保存文本");
         saveButton.addActionListener(this::actionPerformed);
+        saveButton.setFocusPainted(false);
 
         jpanel.add(saveButton);
 
@@ -56,17 +62,19 @@ public class AddTextView extends JFrame implements ActionListener {
                 System.exit(0);
             }
         });
+        data.setId(id);
+        data.setText(jTextArea.getText());
     }
 
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == saveButton) {
-
+            DataOperator  dataOperator=new DataOperator();
+            try {
+                dataOperator.Insert(data);
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
         } else {
         }
     }
-
-    public static void main(String[] args) {
-        new AddTextView();
-    }
-
 }
