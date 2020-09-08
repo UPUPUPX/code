@@ -21,20 +21,24 @@ import java.sql.SQLException;
 public class CheckTextView extends JFrame implements ActionListener {
         JFrame jFrame;
         JPanel jpanel;
-        JButton deleteButton;
         JButton copyButton;
         JButton saveButton;
+        JButton exitButton;
         JTextArea jTextArea;
         ClipBoardModel clipBoardModel=new ClipBoardModel();
+        DataOperator dataOperator=new DataOperator();
         Data data=new Data();
 
         public CheckTextView(int id) {
             super();
-            jFrame = new JFrame("查看文本");
+            jFrame = new JFrame("退出时不要点击右上角");
             jFrame.setSize(600, 420);
             Container contentPane = jFrame.getContentPane();
             contentPane.setLayout(new BorderLayout());
             setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            jFrame.setLocationRelativeTo(null);
+            ImageIcon imageIcon=new ImageIcon("./lib/TextBank.png");
+            jFrame.setIconImage(imageIcon.getImage());
 
             final JPanel panel = new JPanel();
             jTextArea = new JTextArea();
@@ -43,8 +47,18 @@ public class CheckTextView extends JFrame implements ActionListener {
             panel.add(jTextArea);
             getContentPane().add(jTextArea);
 
+            try {
+                data=dataOperator.Find(id);
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
             jTextArea = new JTextArea();
-            jTextArea.setLineWrap(true);
+            if (data!=null){
+                jTextArea.setText(data.getText());
+                jTextArea.setLineWrap(true);
+            }else{
+                JOptionPane.showMessageDialog(null, "数据获取失败");
+            }
 
             jscrollPane = new JScrollPane(jTextArea);
             jpanel = new JPanel();
@@ -60,16 +74,14 @@ public class CheckTextView extends JFrame implements ActionListener {
             jpanel.add(saveButton);
             saveButton.setFocusPainted(false);
 
-            deleteButton = new JButton("删除文本");
-            deleteButton.addActionListener(this::actionPerformed);
-            jpanel.add(deleteButton);
-            deleteButton.setFocusPainted(false);
+            exitButton = new JButton("退出");
+            exitButton.addActionListener(this::actionPerformed);
+            exitButton.setFocusPainted(false);
+            jpanel.add(exitButton);
 
             contentPane.add(jscrollPane, BorderLayout.CENTER);
             contentPane.add(jpanel, BorderLayout.SOUTH);
-
             jFrame.setVisible(true);
-
             jFrame.addWindowListener(new WindowAdapter() {
                 public void windowClosing(WindowEvent e) {
                     System.exit(0);
@@ -78,33 +90,32 @@ public class CheckTextView extends JFrame implements ActionListener {
 
             DataOperator dataOperator=new DataOperator();
             try {
-                jTextArea.setText(dataOperator.Find(id));
+                Data data1=dataOperator.Find(id);
+                if(data1!=null){
+                    jTextArea.setText(dataOperator.Find(id).getText());
+                }
+                else{
+                }
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
             }
-
             data.setId(id);
-            data.setText(jTextArea.getText());
         }
 
         public void actionPerformed(ActionEvent e) {
-            if (e.getSource() == deleteButton) {
-                DataOperator dataOperator=new DataOperator();
-                try {
-                    dataOperator.delete(data);
-                } catch (SQLException throwables) {
-                    throwables.printStackTrace();
-                } catch (InterruptedException interruptedException) {
-                    interruptedException.printStackTrace();
-                }
-            }
-            else if(e.getSource() == copyButton){
+            if(e.getSource() == copyButton){
                 clipBoardModel.setSysClipboardText(jTextArea.getText());
+                jFrame.dispose();
             }
-            else{
+            else if(e.getSource()==exitButton){
+                jFrame.dispose();
+            }
+            else {
                 DataOperator dataOperator=new DataOperator();
                 try {
+                    data.setText(jTextArea.getText());
                     dataOperator.Update(data);
+                    jFrame.dispose();
                 } catch (SQLException throwables) {
                     throwables.printStackTrace();
                 }

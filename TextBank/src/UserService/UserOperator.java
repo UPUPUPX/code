@@ -2,6 +2,7 @@ package UserService;
 
 import Model.DBUtil;
 
+import javax.swing.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -14,7 +15,7 @@ import java.sql.SQLException;
  * @Date 2020/8/15 14:07
  */
 public class UserOperator {
-    public static User FindUser(String str) throws SQLException {
+    public  User FindUser(String str) throws SQLException {
         String sql = "select * from userdata where ACCOUNT=?";
         Connection conn = DBUtil.getConn();
         PreparedStatement ps = conn.prepareStatement(sql);
@@ -42,14 +43,17 @@ public class UserOperator {
         ps.setString(4,user.getAnswer());
         ps.executeUpdate();
         conn.close();
+        JOptionPane.showMessageDialog(null, "注册成功");
     }
     public void update(User user) throws SQLException {
-        String sql="update userdata SET PASSWD=? where ACCOUNT=?"+"VALUES (?,?)";
+        String sql="update `userdata` set PASSWD=? where ACCOUNT=?";
+        /*String sql="update `userdata` set PASSWD=? where ACCOUNT=?"+"VALUES(?,?)";*/
         Connection conn=DBUtil.getConn();
         PreparedStatement ps=conn.prepareStatement(sql);
         ps.setString(1,user.getPasswd());
         ps.setString(2,user.getId());
         ps.executeUpdate();
         conn.close();
+        JOptionPane.showMessageDialog(null, "修改成功");
     }
 }

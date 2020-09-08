@@ -7,6 +7,8 @@
       <change afterPath="$PROJECT_DIR$/../C/test/.idea/modules.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../C/test/.idea/test.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../C/test/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JAVA/test/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../JAVA/test/.idea/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../JAVA/test/.idea/description.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../JAVA/test/.idea/misc.xml" beforeDir="false" />
@@ -42,6 +44,8 @@
       <option name="presentableId" value="Default" />
       <updated>1597202559658</updated>
       <workItem from="1597202560877" duration="156000" />
+      <workItem from="1597756642324" duration="543000" />
+      <workItem from="1597797774394" duration="11000" />
     </task>
     <servers />
   </component>

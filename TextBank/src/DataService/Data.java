@@ -9,6 +9,15 @@ package DataService;
 public class Data {
     private int id;
     private String text;
+    private String summary;
+
+    public String getSummary() {
+        return summary;
+    }
+
+    public void setSummary(String summary) {
+        this.summary = summary;
+    }
 
     public int getId() {
         return id;

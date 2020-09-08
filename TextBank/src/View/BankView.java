@@ -2,6 +2,9 @@ package View;
 
 import DataService.Data;
 import DataService.DataOperator;
+import Model.ClipBoardModel;
+import Model.GetCounts;
+
 
 import javax.swing.*;
 import javax.swing.event.TableModelEvent;
@@ -11,6 +14,8 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Vector;
 
 /**
  * @ClassName BankView
@@ -24,6 +29,7 @@ public class BankView extends JFrame {
     private JTable table;
     private DefaultTableModel tableModel;
     private JTextField TextField;
+    private int rows;
 
     public BankView() {
         super();
@@ -33,34 +39,31 @@ public class BankView extends JFrame {
         final JScrollPane scrollPane = new JScrollPane();
         getContentPane().add(scrollPane, BorderLayout.CENTER);
         String[] rowValues = { "文本内容" };
+        this.setLocationRelativeTo(null);
+        ImageIcon imageIcon=new ImageIcon("./lib/TextBank.png");
+        this.setIconImage(imageIcon.getImage());
+
+        GetCounts getCounts=new GetCounts();
+        int counts=getCounts.getCount();
 
         tableModel = new DefaultTableModel(rowValues,1);
         tableModel.addTableModelListener(new TableModelListener() {
             public void tableChanged(TableModelEvent e) {
-                int type = e.getType();//获得事件的类型
-                int row = e.getFirstRow();//获得触发此次事件的表格行索引
-                if (type == TableModelEvent.INSERT) {//判断是否插入行触发
-                    Data data=new Data();
-                    data.setId(row);
-                    new AddTextView(data.getId());
-                } else if (type == TableModelEvent.UPDATE) {  //判断是否修改行触发
-                    System.out.print("修改行触发");
+                int type = e.getType();
+                int row = e.getFirstRow();
+                rows=row;
+                /*if (type == TableModelEvent.INSERT) { rows=row;}
+                else if (type == TableModelEvent.UPDATE){ rows=row;}
+                else if (type == TableModelEvent.DELETE) { rows=row;}
+                else { rows=row;}*/ }});
 
-                    //判断是否删除行触发
-                } else if (type == TableModelEvent.DELETE) {
-
-                } else {
-                    System.out.println("其他原因触发");
-                }
-            }
-        });
         table = new JTable(tableModel);
-
         table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         table.setRowHeight(30);
         scrollPane.setViewportView(table);
         final JPanel panel = new JPanel();
         getContentPane().add(panel, BorderLayout.SOUTH);
+
         final JLabel aLabel = new JLabel("添加文本标题");
         panel.add(aLabel);
         TextField = new JTextField(30);
@@ -69,9 +72,15 @@ public class BankView extends JFrame {
         final JButton addButton = new JButton("添加文本");
         addButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                String[] rowValues = {TextField.getText() };
-                tableModel.addRow(rowValues);//向表格中添加一行
-                TextField.setText(null);
+                if (e.getSource()==addButton){
+                    String[] rowValues = {TextField.getText()};
+                    tableModel.addRow(rowValues);
+                    Data data=new Data();
+                    data.setId(rows);
+                    data.setSummary(TextField.getText());
+                    new AddTextView(data.getId(),data.getSummary());
+                    TextField.setText(null);
+                }
             }
         });
         panel.add(addButton);
@@ -80,11 +89,18 @@ public class BankView extends JFrame {
         final JButton delButton = new JButton("删除文本");
         delButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                // 获得表格中的选中行
-                int[] selectedRows = table.getSelectedRows();
-                for (int row = 0; row < selectedRows.length; row++) {
-                    //从表格模型中移除表格中的选中行
-                    tableModel.removeRow(selectedRows[row] - row);
+                if (e.getSource()==delButton){
+                    int[] selectedRows = table.getSelectedRows();
+                    for (int row = 0; row < selectedRows.length; row++) {
+                        tableModel.removeRow(selectedRows[row] - row);
+                        DataOperator dataOperator=new DataOperator();
+                        try {
+                            Data data=dataOperator.Find(selectedRows[row]);
+                            dataOperator.delete(data);
+                        } catch (SQLException | InterruptedException throwables) {
+                            throwables.printStackTrace();
+                        }
+                    }
                 }
             }
         });
@@ -92,12 +108,12 @@ public class BankView extends JFrame {
         delButton.setFocusPainted(false);
 
         final JButton checkButton = new JButton("查看文本");
-        delButton.addActionListener(new ActionListener() {
+        checkButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                // 获得表格中的选中行
-                int[] selectedRows = table.getSelectedRows();
-                for (int row = 0; row < selectedRows.length; row++) {
-                    new CheckTextView(row);
+                if (e.getSource()==checkButton){
+                    rows=table.getSelectedRow();
+                    System.out.println(rows);
+                    new CheckTextView(rows);
                 }
             }
         });
@@ -105,18 +121,52 @@ public class BankView extends JFrame {
         checkButton.setFocusPainted(false);
 
         final JButton copyButton = new JButton("复制文本");
-        delButton.addActionListener(new ActionListener() {
+        copyButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                // 获得表格中的选中行
-                int[] selectedRows = table.getSelectedRows();
-                for (int row = 0; row < selectedRows.length; row++) {
-                    //从表格模型中查看表格中的选中行
-
+                if (e.getSource()==copyButton){
+                    int[] selectedRows = table.getSelectedRows();
+                    for (int row = 0; row < selectedRows.length; row++) {
+                        DataOperator dataOperator=new DataOperator();
+                        Data data;
+                        try {
+                            data=dataOperator.Find(row);
+                            if (data!=null){
+                                ClipBoardModel clipBoardModel=new ClipBoardModel();
+                                clipBoardModel.setSysClipboardText(data.getText());
+                            }
+                        } catch (SQLException throwables) {
+                            throwables.printStackTrace();
+                        }
+                    }
                 }
             }
         });
         panel.add(copyButton);
         copyButton.setFocusPainted(false);
+        setVisible(true);
+
+        if (counts>0){
+            for (int i = 0; i < counts+2; i++) {
+                DataOperator dataOperator=new DataOperator();
+                try {
+                    Data data= dataOperator.Find(i);
+                    if (data!=null){
+                        String[] rowValue = {data.getSummary()};
+                        tableModel.removeRow(0);
+                        tableModel.addRow(rowValue);
+                    }else{
+                    }
+                } catch (SQLException throwables) {
+                    throwables.printStackTrace();
+                }
+            }
+
+        }else{
+        }
+    }
+
+    public static void main(String[] args) {
+        new BankView();
     }
 }
 

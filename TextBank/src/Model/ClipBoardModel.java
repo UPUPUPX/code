@@ -1,5 +1,6 @@
 package Model;
 
+import javax.swing.*;
 import java.awt.*;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
@@ -17,5 +18,6 @@ public class ClipBoardModel {
         Clipboard clip = Toolkit.getDefaultToolkit().getSystemClipboard();
         Transferable tText = new StringSelection(writeMe);
         clip.setContents(tText, null);
+        JOptionPane.showMessageDialog(null, "已复制到剪切板");
     }
 }

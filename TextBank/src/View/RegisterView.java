@@ -1,12 +1,16 @@
 package View;
 
+import Model.Encrypt;
 import Model.ListModel;
+import UserService.User;
+import UserService.UserOperator;
 
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 
 /**
  * @ClassName RegisterView
@@ -27,6 +31,8 @@ public class RegisterView extends JFrame implements ActionListener {
     JTextField answer;
     JPasswordField ipassword;
 
+    public String getp(){ return String.valueOf(ipassword.getPassword()); }
+    
     public RegisterView() {
         regname = new JLabel("用户名");
         regname.setBounds(76, 90, 120, 30);
@@ -91,10 +97,12 @@ public class RegisterView extends JFrame implements ActionListener {
         lab.setContentAreaFilled(false);
         getContentPane().add(lab);
 
-       /* setTitle("注册");*/
-        setBounds(200, 200, 560, 420);
+        setSize(560, 420);
         getContentPane().setLayout(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        ImageIcon imageIcon=new ImageIcon("./lib/TextBank.png");
+        this.setIconImage(imageIcon.getImage());
+        this.setLocationRelativeTo(null);
 
         cancel.addActionListener(this);
         register.addActionListener(this);
@@ -103,12 +111,35 @@ public class RegisterView extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
+         if (e.getSource()==cancel){
+             dispose();
+             new LoginView();
+         }else{
+             Encrypt encrypt=new Encrypt();
+             String id=username.getText();
+             String an=answer.getText();
+             String pa=encrypt.encode(getp());
+             String ques=(String)jComboBox.getSelectedItem();
+             UserOperator userOperator=new UserOperator();
+             try {
+                 User user;
+                 user=userOperator.FindUser(id);
+                 if (user!=null){
+                     JOptionPane.showMessageDialog(null, "用户已存在");;
+                 }else{
+                     user=new User();
+                     user.setId(id);
+                     user.setAnswer(an);
+                     user.setPasswd(pa);
+                     user.setQuestion(ques);
+                     userOperator.Insert(user);
+                     dispose();
+                     new LoginView();
+                 }
+             } catch (SQLException throwables) {
+                 throwables.printStackTrace();
+             }
+         }
     }
-
-    /*public static void main(String[] args) {
-        new RegisterView();
-    }*/
-
 }
 
