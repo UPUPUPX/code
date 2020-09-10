@@ -1,0 +1,1 @@
+/usr/bin/c++.exe -g  -Wl,--enable-auto-import CMakeFiles/2007.dir/main.cpp.o  -o 2007.exe -Wl,--out-implib,lib2007.dll.a -Wl,--major-image-version,0,--minor-image-version,0 

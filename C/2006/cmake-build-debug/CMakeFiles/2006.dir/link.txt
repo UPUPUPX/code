@@ -1,0 +1,1 @@
+/usr/bin/c++.exe -g  -Wl,--enable-auto-import CMakeFiles/2006.dir/main.cpp.o  -o 2006.exe -Wl,--out-implib,lib2006.dll.a -Wl,--major-image-version,0,--minor-image-version,0 

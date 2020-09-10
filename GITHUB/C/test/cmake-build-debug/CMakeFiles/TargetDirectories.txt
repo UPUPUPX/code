@@ -1,3 +1,0 @@
-/cygdrive/d/CODE/GITHUB/C/test/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/cygdrive/d/CODE/GITHUB/C/test/cmake-build-debug/CMakeFiles/test.dir
-/cygdrive/d/CODE/GITHUB/C/test/cmake-build-debug/CMakeFiles/edit_cache.dir
