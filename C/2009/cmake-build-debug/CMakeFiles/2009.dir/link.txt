@@ -1,0 +1,1 @@
+/usr/bin/c++.exe -g  -Wl,--enable-auto-import CMakeFiles/2009.dir/main.cpp.o  -o 2009.exe -Wl,--out-implib,lib2009.dll.a -Wl,--major-image-version,0,--minor-image-version,0 

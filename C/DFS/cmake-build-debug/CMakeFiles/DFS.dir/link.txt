@@ -1,0 +1,1 @@
+/usr/bin/c++.exe -g  -Wl,--enable-auto-import CMakeFiles/DFS.dir/main.cpp.o  -o DFS.exe -Wl,--out-implib,libDFS.dll.a -Wl,--major-image-version,0,--minor-image-version,0 

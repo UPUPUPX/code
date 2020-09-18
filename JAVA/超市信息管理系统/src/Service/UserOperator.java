@@ -1,0 +1,65 @@
+package Service;
+
+import DAO.User;
+import Service.DBUtil;
+
+import javax.swing.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+/**
+ * @ClassName UserOperator
+ * @Description TODO
+ * @Author 孙浩瑞
+ * @Date 2020/8/15 14:07
+ */
+public class UserOperator {
+    public User FindUser(String str) throws SQLException {
+        String sql = "select * from userdata where ACCOUNT=?";
+        Connection conn = DBUtil.getConn();
+        PreparedStatement ps = conn.prepareStatement(sql);
+        ps.setString(1, str);
+        ResultSet rs = ps.executeQuery();
+        if (rs.next()) {
+            User user = new User();
+            user.setName(rs.getString("ACCOUNT"));
+            user.setPass(rs.getString("PASSWD"));
+            user.setQuestion(rs.getString("QUESTION"));
+            user.setAnswer(rs.getString("ANSWER"));
+            user.setState(rs.getInt("STATE"));
+            return user;
+        } else {
+            return null;
+        }
+    }
+    public void Insert(User user) throws SQLException {
+        String sql="insert into `userdata`(`ACCOUNT`, `PASSWD`, `QUESTION`, `ANSWER`,`STATE`) "+"VALUES (?,?,?,?,?)";
+        Connection conn=DBUtil.getConn();
+        PreparedStatement ps=conn.prepareStatement(sql);
+        ps.setString(1,user.getName());
+        ps.setString(2,user.getPass());
+        ps.setString(3,user.getQuestion());
+        ps.setString(4,user.getAnswer());
+        ps.setInt(5,user.getState());
+        ps.executeUpdate();
+        conn.close();
+        if (user.getState()==0) {
+            JOptionPane.showMessageDialog(null, "操作员注册成功");
+        }else{
+            JOptionPane.showMessageDialog(null, "主管注册成功");
+        }
+    }
+    public void Update(User user) throws SQLException {
+        String sql="update `userdata` set PASSWD=? where ACCOUNT=?";
+        Connection conn=DBUtil.getConn();
+        PreparedStatement ps=conn.prepareStatement(sql);
+        ps.setString(1,user.getPass());
+        ps.setString(2,user.getName());
+        ps.executeUpdate();
+        conn.close();
+        JOptionPane.showMessageDialog(null, "修改成功");
+    }
+
+}
