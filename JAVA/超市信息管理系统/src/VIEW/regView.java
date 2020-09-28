@@ -1,16 +1,13 @@
 package VIEW;
-
 import DAO.User;
-import Model.Encrypt;
 import Model.listModel;
+import Service.UserOperator;
 
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
-import javax.swing.event.ListDataListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.nio.file.attribute.UserPrincipalNotFoundException;
 import java.sql.SQLException;
 
 /**
@@ -31,6 +28,7 @@ public class regView extends JFrame implements ActionListener {
     JComboBox jComboBox;
     JTextField username;
     JTextField answer;
+    JTextField dep;
     JPasswordField ipassword;
     private int flag;
     public int getFlag() { return flag; }
@@ -39,108 +37,123 @@ public class regView extends JFrame implements ActionListener {
     public regView(int n) {
         if (n==0) {
             regname = new JLabel("用户名");
-            regname.setBounds(76, 90, 120, 30);
-            regname.setFont(new Font("", Font.BOLD, 24));
+            regname.setBounds(76, 90, 200, 40);
+            regname.setFont(new Font("", Font.BOLD, 36));
             getContentPane().add(regname);
             getContentPane().setLayout(null);
             regpasswd = new JLabel("密 码");
-            regpasswd.setBounds(76, 140, 120, 30);
-            regpasswd.setFont(new Font("", Font.BOLD, 24));
+            regpasswd.setBounds(76, 140, 200, 40);
+            regpasswd.setFont(new Font("", Font.BOLD, 36));
             getContentPane().add(regpasswd);
             question = new JLabel("密保问题");
-            question.setBounds(76, 190, 120, 30);
-            question.setFont(new Font("", Font.BOLD, 24));
+            question.setBounds(76, 190, 200, 40);
+            question.setFont(new Font("", Font.BOLD, 36));
             getContentPane().add(question);
             ans = new JLabel("密保答案");
-            ans.setBounds(76, 240, 120, 30);
-            ans.setFont(new Font("", Font.BOLD, 24));
+            ans.setBounds(76, 240, 200, 40);
+            ans.setFont(new Font("", Font.BOLD, 36));
             getContentPane().add(ans);
+            department=new JLabel("部门");
+            department.setFont(new Font("宋体",Font.BOLD,36));
+            department.setBounds(76,290,200,40);
+            getContentPane().add(department);
             username = new JTextField();
-            username.setBounds(176, 90, 240, 30);
-            username.setFont(new Font("", Font.BOLD, 22));
+            username.setBounds(300, 90, 350, 40);
+            username.setFont(new Font("", Font.BOLD, 36));
             getContentPane().add(username);
             ipassword = new JPasswordField();
-            ipassword.setBounds(176, 140, 240, 30);
-            ipassword.setFont(new Font("", Font.BOLD, 22));
+            ipassword.setBounds(300, 140, 350, 40);
+            ipassword.setFont(new Font("", Font.BOLD, 36));
             getContentPane().add(ipassword);
             jComboBox = new JComboBox(new listModel());
-            jComboBox.setBounds(176, 190, 240, 30);
+            jComboBox.setBounds(300, 190, 350, 40);
             getContentPane().add(jComboBox);
             answer = new JTextField();
-            answer.setBounds(176, 240, 240, 30);
-            answer.setFont(new Font("", Font.BOLD, 22));
+            answer.setBounds(300, 240, 350, 40);
+            answer.setFont(new Font("", Font.BOLD, 36));
             getContentPane().add(answer);
+            dep=new JTextField();
+            dep.setBounds(300,290,350,40);
+            dep.setFont(new Font("宋体",Font.BOLD,36));
+            getContentPane().add(dep);
             register = new JButton("注册");
             register.setText("注册");
-            register.setBounds(134, 300, 136, 40);
+            register.setBounds(134, 400, 136, 40);
             getContentPane().add(register);
             register.setFocusPainted(false);
             cancel = new JButton("取消");
             cancel.setText("取消");
-            cancel.setBounds(282, 300, 136, 40);
+            cancel.setBounds(282, 400, 136, 40);
             getContentPane().add(cancel);
             cancel.setFocusPainted(false);
             lab = new JButton();
             lab.setBorder(new TitledBorder(null, "", TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, null, null));
             lab.setForeground(new Color(0, 130, 114));
             lab.setFont(new Font("", Font.BOLD, 40));
-            lab.setText("注册操作员账号");
-            lab.setSize(200, 50);
+            lab.setText("注册员工账号");
+            lab.setSize(300, 50);
             lab.setBorderPainted(false);
             lab.setFocusPainted(false);
             lab.setContentAreaFilled(false);
             getContentPane().add(lab);
-            setSize(560, 420);
+            setSize(800, 540);
             getContentPane().setLayout(null);
             setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            ImageIcon imageIcon = new ImageIcon("./lib/.png");
-            this.setIconImage(imageIcon.getImage());
             this.setLocationRelativeTo(null);
             cancel.addActionListener(this);
             register.addActionListener(this);
             setVisible(true);
+            getContentPane().setLayout(null);
         }
         else{
             regname = new JLabel("用户名");
-            regname.setBounds(76, 90, 120, 30);
-            regname.setFont(new Font("", Font.BOLD, 24));
+            regname.setBounds(76, 90, 200, 40);
+            regname.setFont(new Font("", Font.BOLD, 36));
             getContentPane().add(regname);
             getContentPane().setLayout(null);
             regpasswd = new JLabel("密 码");
-            regpasswd.setBounds(76, 140, 120, 30);
-            regpasswd.setFont(new Font("", Font.BOLD, 24));
+            regpasswd.setBounds(76, 140, 200, 40);
+            regpasswd.setFont(new Font("", Font.BOLD, 36));
             getContentPane().add(regpasswd);
             question = new JLabel("密保问题");
-            question.setBounds(76, 190, 120, 30);
-            question.setFont(new Font("", Font.BOLD, 24));
+            question.setBounds(76, 190, 200, 40);
+            question.setFont(new Font("", Font.BOLD, 36));
             getContentPane().add(question);
             ans = new JLabel("密保答案");
-            ans.setBounds(76, 240, 120, 30);
-            ans.setFont(new Font("", Font.BOLD, 24));
+            ans.setBounds(76, 240, 200, 40);
+            ans.setFont(new Font("", Font.BOLD, 36));
             getContentPane().add(ans);
+            department=new JLabel("部门");
+            department.setFont(new Font("宋体",Font.BOLD,36));
+            department.setBounds(76,290,200,40);
+            getContentPane().add(department);
             username = new JTextField();
-            username.setBounds(176, 90, 240, 30);
-            username.setFont(new Font("", Font.BOLD, 22));
+            username.setBounds(300, 90, 350, 40);
+            username.setFont(new Font("", Font.BOLD, 36));
             getContentPane().add(username);
             ipassword = new JPasswordField();
-            ipassword.setBounds(176, 140, 240, 30);
-            ipassword.setFont(new Font("", Font.BOLD, 22));
+            ipassword.setBounds(300, 140, 350, 40);
+            ipassword.setFont(new Font("", Font.BOLD, 36));
             getContentPane().add(ipassword);
             jComboBox = new JComboBox(new listModel());
-            jComboBox.setBounds(176, 190, 240, 30);
+            jComboBox.setBounds(300, 190, 350, 40);
             getContentPane().add(jComboBox);
             answer = new JTextField();
-            answer.setBounds(176, 240, 240, 30);
-            answer.setFont(new Font("", Font.BOLD, 22));
+            answer.setBounds(300, 240, 350, 40);
+            answer.setFont(new Font("", Font.BOLD, 36));
             getContentPane().add(answer);
+            dep=new JTextField();
+            dep.setBounds(300,290,350,40);
+            dep.setFont(new Font("宋体",Font.BOLD,36));
+            getContentPane().add(dep);
             register = new JButton("注册");
             register.setText("注册");
-            register.setBounds(134, 300, 136, 40);
+            register.setBounds(134, 400, 136, 40);
             getContentPane().add(register);
             register.setFocusPainted(false);
             cancel = new JButton("取消");
             cancel.setText("取消");
-            cancel.setBounds(282, 300, 136, 40);
+            cancel.setBounds(282, 400, 136, 40);
             getContentPane().add(cancel);
             cancel.setFocusPainted(false);
             lab = new JButton();
@@ -148,16 +161,14 @@ public class regView extends JFrame implements ActionListener {
             lab.setForeground(new Color(0, 130, 114));
             lab.setFont(new Font("", Font.BOLD, 40));
             lab.setText("注册主管账号");
-            lab.setSize(200, 50);
+            lab.setSize(300, 50);
             lab.setBorderPainted(false);
             lab.setFocusPainted(false);
             lab.setContentAreaFilled(false);
             getContentPane().add(lab);
-            setSize(560, 420);
+            setSize(800, 540);
             getContentPane().setLayout(null);
             setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            ImageIcon imageIcon = new ImageIcon("./lib/TextBank.png");
-            this.setIconImage(imageIcon.getImage());
             this.setLocationRelativeTo(null);
             cancel.addActionListener(this);
             register.addActionListener(this);
@@ -167,14 +178,14 @@ public class regView extends JFrame implements ActionListener {
     }
     @Override
     public void actionPerformed(ActionEvent e) {
-        /*if (e.getSource()==cancel){
+        if (e.getSource()==cancel){
             dispose();
-            //new loginView();
+            new mainView();
         }else{
-            //UserOperator userOperator=new UserOperator();
+            UserOperator userOperator=new UserOperator();
             try {
                 User user;
-                user=userOperator.FindUser(id);
+                user=userOperator.FindUser(username.getText());
                 if (user!=null){
                     JOptionPane.showMessageDialog(null, "用户已存在");;
                 }else {
@@ -185,21 +196,23 @@ public class regView extends JFrame implements ActionListener {
                         user.setQuestion((String) jComboBox.getSelectedItem());
                         user.setAnswer(ans.getText());
                         user.setState(0);
+                        userOperator.Insert(user);
                         dispose();
-                        new loginView();
+                        new mainView();
                     } else {
                         user.setName(username.getText());
                         user.setPass(regpasswd.getText());
                         user.setQuestion((String) jComboBox.getSelectedItem());
                         user.setAnswer(ans.getText());
                         user.setState(1);
+                        userOperator.Insert(user);
                         dispose();
-                        new loginView();
+                        new mainView();
                     }
                 }
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
             }
-        }*/
+        }
     }
 }

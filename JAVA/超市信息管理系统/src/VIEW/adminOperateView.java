@@ -24,13 +24,16 @@ public class adminOperateView extends JFrame implements ActionListener {
     public Color heavygreen= new Color(19,191,112);
     public Color heavywrite=new Color(233,243,243);
     String [] item=new String[]{"useroperate","adminoperate","bill","state","salary","exit"};
+    public static void main(String[] args) {
+        new adminOperateView();
+    }
     public adminOperateView() {
         this.setLayout(new GridLayout(2, 3, 0, 0));
         setBackground(heavygreen);
         useroperate= new JButton("员工管理");
         useroperate.setFocusPainted(false);
         useroperate.setBorderPainted(false);
-        useroperate.setBackground(heavygreen);
+        useroperate.setBackground(heavyyello);
         useroperate.setFont(new Font("", Font.BOLD, 40));
         useroperate.setForeground(heavywrite);
         adminoperate = new JButton("主管管理");
@@ -48,7 +51,7 @@ public class adminOperateView extends JFrame implements ActionListener {
         bill=new JButton("查看流水");
         bill.setFocusPainted(false);
         bill.setBorderPainted(false);
-        bill.setBackground(heavyyello);
+        bill.setBackground(heavygreen);
         bill.setFont(new Font("", Font.BOLD, 40));
         bill.setForeground(heavywrite);
         salary=new JButton("工资管理");
@@ -85,9 +88,27 @@ public class adminOperateView extends JFrame implements ActionListener {
         }
     @Override
     public void actionPerformed(ActionEvent e) {
-    }
+        if (e.getSource()==useroperate){
+            dispose();
+            new manageUser();
+        }
+        if (e.getSource()==adminoperate){
+            dispose();
+            new manageUser();
+        }
+        if (e.getSource()==exit){
+            dispose();
+            new mainView();
+        }
+        if (e.getSource()==bill){
+            new adminprintlist();
+        }
+        if (e.getSource()==salary){
 
-    public static void main(String[] args) {
-        new adminOperateView();
+        }
+        if (e.getSource()==state){
+            JOptionPane.showMessageDialog(null, "新功能正在开发当中");
+        }
+
     }
 }

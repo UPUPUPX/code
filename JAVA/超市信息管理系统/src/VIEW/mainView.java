@@ -89,10 +89,10 @@ public class mainView extends JFrame implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             if (e.getSource() == adminlog) {
                 dispose();
-                //new regView();
+                new admainView();
             } else if (e.getSource() == forget) {
                 dispose();
-                //new sforget();
+                new forgetView();
             } else if (e.getSource() == log) {
                 UserOperator userOperator = new UserOperator();
                 try {
@@ -102,7 +102,7 @@ public class mainView extends JFrame implements ActionListener {
                     if (user != null) {
                         if (user.getName().equals(username.getText()) && user.getPass().equals(str)) {
                             dispose();
-                            //new BankView();
+                            new userOperateView();
                         } else {
                             JOptionPane.showMessageDialog(null, "用户名或密码错误");
                         }
@@ -113,5 +113,8 @@ public class mainView extends JFrame implements ActionListener {
                     throwables.printStackTrace();
                 }
             }
+    }
+    public static void main(String[] args) {
+        new mainView();
     }
 }

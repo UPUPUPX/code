@@ -56,7 +56,6 @@ public class BankView extends JFrame {
                 else if (type == TableModelEvent.UPDATE){ rows=row;}
                 else if (type == TableModelEvent.DELETE) { rows=row;}
                 else { rows=row;}*/ }});
-
         table = new JTable(tableModel);
         table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         table.setRowHeight(30);

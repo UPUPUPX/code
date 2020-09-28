@@ -13,7 +13,7 @@ public class DBUtil {
     static {
         try {
             Properties pro = new Properties();
-            InputStream is = DBUtil.class.getResourceAsStream("/sqlite.properties");
+            InputStream is = DBUtil.class.getResourceAsStream("././lib/sqlite.properties");
             pro.load(is);
             ds = BasicDataSourceFactory.createDataSource(pro);
         } catch (Exception e) {

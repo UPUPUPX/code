@@ -1,5 +1,6 @@
 package VIEW;
 
+import DAO.User;
 import Model.Encrypt;
 import Model.listModel;
 import Service.UserOperator;
@@ -23,15 +24,10 @@ public class admainView extends JFrame implements ActionListener {
     JButton log;
     JButton forget;
     JButton exit;
-    JFrame loginframe;
-    public void add(Component c,GridBagConstraints constraints,int x,int y,int w,int h)
-    {
-        constraints.gridx=x;
-        constraints.gridy=y;
-        constraints.gridwidth=w;
-        constraints.gridheight=h;
-        add(c,constraints);
-    }
+    JTextField username;
+    JButton lab;
+    JPasswordField ipassword;
+    User user;
     public admainView(){
         name=new JLabel("账号");
         pass=new JLabel("密码");
@@ -45,12 +41,12 @@ public class admainView extends JFrame implements ActionListener {
         pass.setBounds(76, 190, 120, 30);
         pass.setFont(new Font("", Font.BOLD, 24));
         getContentPane().add(pass);
-        JTextField username = new JTextField();
+        username = new JTextField();
         username.setBounds(176, 115, 240, 40);
         username.setFont(new Font("", Font.BOLD, 22));
         username.setCaretColor(Color.CYAN);
         getContentPane().add(username);
-        JPasswordField ipassword = new JPasswordField();
+        ipassword = new JPasswordField();
         ipassword.setBounds(176, 185, 240, 40);
         ipassword.setFont(new Font("", Font.BOLD, 22));
         getContentPane().add(ipassword);
@@ -66,7 +62,7 @@ public class admainView extends JFrame implements ActionListener {
         forget.setContentAreaFilled(false);
         forget.addActionListener(this::actionPerformed);
         getContentPane().add(forget);
-        JButton lab = new JButton();
+        lab = new JButton();
         lab.setBorder(new TitledBorder(null, "", TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, null, null));
         lab.setForeground(new Color(0, 130, 114));
         lab.setFont(new Font("", Font.BOLD, 40));
@@ -84,12 +80,37 @@ public class admainView extends JFrame implements ActionListener {
         this.setLocationRelativeTo(null);
         log.addActionListener(this);
         forget.addActionListener(this);
+        exit.addActionListener(this);
         setVisible(true);
     }
     @Override
     public void actionPerformed(ActionEvent e) {
-    }
-    public static void main(String[] args) {
-        new admainView();
+        if (e.getSource()==exit){
+            dispose();
+            new mainView();
+        }
+        if (e.getSource()==log){
+            user.setName(username.getText());
+            user.setPass(String.valueOf(ipassword.getPassword()));
+            user.setState(1);
+            UserOperator userOperator=new UserOperator();
+            try {
+                User u= userOperator.FindUser(username.getName());
+                if (u!=null){
+                    if (u.getPass().equals(user.getName())){
+                        dispose();
+                        new adminOperateView();
+                    }
+                    else{
+                        JOptionPane.showMessageDialog(null, "用户密码错误");
+                    }
+                }
+                else{
+                    JOptionPane.showMessageDialog(null, "用户不存在");
+                }
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+        }
     }
 }
