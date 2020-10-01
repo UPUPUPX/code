@@ -40,6 +40,7 @@ public class userOperateView extends JFrame implements ActionListener {
     JButton delcount;
     JButton delgoods;
     JButton addgoods;
+    JTable table;
     DefaultTableModel tableModel;
     Goods goods=new Goods();
     shopList shopList=new shopList();
@@ -174,12 +175,18 @@ public class userOperateView extends JFrame implements ActionListener {
             goodsOperate.delaccount(goods);
             listOperate.dellistcount(shopList);
         } else if (e.getSource() == delgoods) {
-            goodsOperate.delgoods(goods);
-            listOperate.delgoodslist(shopList);
-        } else if (e.getSource() == print) {
+            int[] selectedRows = table.getSelectedRows();
+            for (int row = 0; row < selectedRows.length; row++) {
+                tableModel.removeRow(selectedRows[row] - row);
+                goodsOperate.delgoods(goods);
+                listOperate.delgoodslist(shopList);
+            }
+        }else if (e.getSource() == print) {
 
         }
         else if (e.getSource()==addgoods){
+            String[] rowValues = {String.valueOf(shopList.getId()),String.valueOf(shopList.getName()),"1",String.valueOf(shopList.getPrice())};
+            tableModel.addRow(rowValues);
             listOperate.addlistgoods(shopList);
         }
     }

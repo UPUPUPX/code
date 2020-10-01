@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eclipse-userlibraries>
+  <library name="commons-pool-1.6">
+    <archive path="D:/CODE/JAVA/超市信息管理系统/lib/commons-pool-1.6.jar" />
+    <archive path="D:/CODE/JAVA/超市信息管理系统/lib/sqlite-jdbc-3.7.2.jar" />
+    <archive path="D:/CODE/JAVA/超市信息管理系统/lib/commons-logging-1.2.jar" />
+    <archive path="D:/CODE/JAVA/超市信息管理系统/lib/commons-dbutils-1.6.jar" />
+    <archive path="D:/CODE/JAVA/超市信息管理系统/lib/commons-dbcp-1.4.jar" />
+    <archive path="D:/CODE/JAVA/超市信息管理系统/lib/commons-collections-3.2.1.jar" />
+  </library>
+</eclipse-userlibraries>
+

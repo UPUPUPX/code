@@ -16,14 +16,14 @@ import java.sql.SQLException;
  */
 public class UserOperator {
     public User FindUser(String str) throws SQLException {
-        String sql = "select * from userdata where ACCOUNT=?";
+        String sql = "select * from user where ID=?";
         Connection conn = DBUtil.getConn();
         PreparedStatement ps = conn.prepareStatement(sql);
         ps.setString(1, str);
         ResultSet rs = ps.executeQuery();
         if (rs.next()) {
             User user = new User();
-            user.setName(rs.getString("ACCOUNT"));
+            user.setName(rs.getString("ID"));
             user.setPass(rs.getString("PASSWD"));
             user.setQuestion(rs.getString("QUESTION"));
             user.setAnswer(rs.getString("ANSWER"));
@@ -34,7 +34,7 @@ public class UserOperator {
         }
     }
     public void Insert(User user) throws SQLException {
-        String sql="insert into `userdata`(`ACCOUNT`, `PASSWD`, `QUESTION`, `ANSWER`,`STATE`,`DEPARTMENT`) "+"VALUES (?,?,?,?,?,?)";
+        String sql="insert into `user`(`ID`, `PASSWD`, `QUESTION`, `ANSWER`,`STATE`,`DEPARTMENT`) "+"VALUES (?,?,?,?,?,?)";
         Connection conn=DBUtil.getConn();
         User user1=FindUser(user.getName());
         if (user1!=null) {
@@ -58,7 +58,7 @@ public class UserOperator {
         }
     }
     public void Update(User user) throws SQLException {
-        String sql="update `user` set PASSWD=?,DEPARTMENT=?,QUESTION=?,ANSWER=? where ACCOUNT=?";
+        String sql="update `user` set PASSWD=?,DEPARTMENT=?,QUESTION=?,ANSWER=? where ID=?";
         Connection conn=DBUtil.getConn();
         PreparedStatement ps=conn.prepareStatement(sql);
         ps.setString(1,user.getPass());
@@ -71,7 +71,7 @@ public class UserOperator {
         JOptionPane.showMessageDialog(null, "修改成功");
     }
     public void delete(User user) throws SQLException, InterruptedException {
-        String sql="delete from `user` where ACCOUNT=?";
+        String sql="delete from `user` where ID=?";
         Connection conn=DBUtil.getConn();
         User user1=FindUser(user.getName());
         if (user1 == null) {

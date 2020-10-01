@@ -7,5 +7,11 @@
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
       <jdbc-url>jdbc:sqlite:D:\CODE\JAVA\超市信息管理系统\lib\data.db</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="data [2]" uuid="0f2cc9e6-1310-4f77-9c36-8821a5472225">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:D:\CODE\JAVA\超市信息管理系统\src\data.db</jdbc-url>
+    </data-source>
   </component>
 </project>
