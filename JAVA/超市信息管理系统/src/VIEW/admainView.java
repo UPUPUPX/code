@@ -27,7 +27,6 @@ public class admainView extends JFrame implements ActionListener {
     JTextField username;
     JButton lab;
     JPasswordField ipassword;
-    User user;
     public admainView(){
         name=new JLabel("账号");
         pass=new JLabel("密码");
@@ -90,6 +89,7 @@ public class admainView extends JFrame implements ActionListener {
             new mainView();
         }
         if (e.getSource()==log){
+            User user=new User();
             user.setName(username.getText());
             user.setPass(String.valueOf(ipassword.getPassword()));
             user.setState(1);
@@ -97,7 +97,7 @@ public class admainView extends JFrame implements ActionListener {
             try {
                 User u= userOperator.FindUser(username.getName());
                 if (u!=null){
-                    if (u.getPass().equals(user.getName())){
+                    if (u.getPass().equals(user.getName())&&u.getName().equals(user.getName())&&u.getState()==user.getState()){
                         dispose();
                         new adminOperateView();
                     }
@@ -112,5 +112,9 @@ public class admainView extends JFrame implements ActionListener {
                 throwables.printStackTrace();
             }
         }
+    }
+
+    public static void main(String[] args) {
+        new adminOperateView();
     }
 }

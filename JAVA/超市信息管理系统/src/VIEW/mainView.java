@@ -97,10 +97,10 @@ public class mainView extends JFrame implements ActionListener {
                 UserOperator userOperator = new UserOperator();
                 try {
                     user = userOperator.FindUser(username.getText());
-                    Encrypt encrypt = new Encrypt();
-                    String str = encrypt.encode(getp());
+                   /* Encrypt encrypt = new Encrypt();
+                    String str = encrypt.encode(getp());*/
                     if (user != null) {
-                        if (user.getName().equals(username.getText()) && user.getPass().equals(str)) {
+                        if (user.getName().equals(username.getText()) && user.getPass().equals(String.valueOf(ipass.getPassword()))) {
                             dispose();
                             new userOperateView();
                         } else {

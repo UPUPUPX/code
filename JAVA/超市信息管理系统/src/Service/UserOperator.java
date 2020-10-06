@@ -37,7 +37,7 @@ public class UserOperator {
         String sql="insert into `user`(`ID`, `PASSWD`, `QUESTION`, `ANSWER`,`STATE`,`DEPARTMENT`) "+"VALUES (?,?,?,?,?,?)";
         Connection conn=DBUtil.getConn();
         User user1=FindUser(user.getName());
-        if (user1!=null) {
+        if (user1==null) {
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, user.getName());
             ps.setString(2, user.getPass());
@@ -48,13 +48,12 @@ public class UserOperator {
             ps.executeUpdate();
             conn.close();
             if (user.getState() == 0) {
-                JOptionPane.showMessageDialog(null, "操作员注册成功");
+                JOptionPane.showMessageDialog(null, "员工注册成功");
             } else {
                 JOptionPane.showMessageDialog(null, "主管注册成功");
             }
-        }
-        else{
-            JOptionPane.showMessageDialog(null, "该人员已注册");
+        } else{
+            JOptionPane.showMessageDialog(null, "用户已注册");
         }
     }
     public void Update(User user) throws SQLException {

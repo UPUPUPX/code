@@ -30,43 +30,7 @@ public class regView extends JFrame implements ActionListener {
     JTextField answer;
     JTextField dep;
     JPasswordField ipassword;
-    String name;
-    String pass;
-    String que;
-    String an;
-    String de;
-    @Override
-    public String getName() {
-        return name;
-    }
-    @Override
-    public void setName(String name) {
-        this.name = name;
-    }
-    public String getPass() {
-        return pass;
-    }
-    public void setPass(String pass) {
-        this.pass = pass;
-    }
-    public String getQue() {
-        return que;
-    }
-    public void setQue(String que) {
-        this.que = que;
-    }
-    public String getAn() {
-        return an;
-    }
-    public void setAn(String an) {
-        this.an = an;
-    }
-    public String getDe() {
-        return de;
-    }
-    public void setDe(String de) {
-        this.de = de;
-    }
+    User user=new User();
     private int flag;
     public void setFlag(int flag) { this.flag = flag; }
     public regView(int n) {
@@ -117,14 +81,14 @@ public class regView extends JFrame implements ActionListener {
         register.setFocusPainted(false);
         cancel = new JButton("取消");
         cancel.setText("取消");
-        cancel.setBounds(282, 400, 136, 40);
+        cancel.setBounds(482, 400, 136, 40);
         getContentPane().add(cancel);
         cancel.setFocusPainted(false);
         lab = new JButton();
         lab.setBorder(new TitledBorder(null, "", TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, null, null));
         lab.setForeground(new Color(0, 130, 114));
         lab.setFont(new Font("", Font.BOLD, 40));
-        lab.setText("注册员工账号");
+        lab.setText("注册账号");
         lab.setSize(300, 50);
         lab.setBorderPainted(false);
         lab.setFocusPainted(false);
@@ -138,13 +102,7 @@ public class regView extends JFrame implements ActionListener {
         register.addActionListener(this);
         setVisible(true);
         getContentPane().setLayout(null);
-        setName(username.getText());
-        setPass(String.valueOf(ipassword.getPassword()));
-        setQue((String) jComboBox.getSelectedItem());
-        setAn(answer.getText());
-        setDe(dep.getText());
         setFlag(n);
-        System.out.println(name);
     }
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -154,32 +112,28 @@ public class regView extends JFrame implements ActionListener {
         }else{
             UserOperator userOperator=new UserOperator();
             try {
+                user.setName(username.getText());
+                user.setPass(String.valueOf(ipassword.getPassword()));
+                user.setQuestion((String) jComboBox.getSelectedItem());
+                user.setAnswer(answer.getText());
+                user.setDepartement(dep.getText());
                 User users=userOperator.FindUser(username.getText());
                 if (users!=null){
                     JOptionPane.showMessageDialog(null, "用户已存在");;
                 }
                 else {
-                    User user = new User();
-                    user.setName(getName());
-                    user.setPass(getPass());
-                    user.setQuestion(getQue());
-                    user.setAnswer(getAn());
-                    user.setDepartement(getDe());
+
                     if (flag == 0) {
                         user.setState(0);
                     } else {
                         user.setState(1);
                     }
                     userOperator.Insert(user);
-                    System.out.println(name);
+                    System.out.println(user.getName());
                 }
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
             }
         }
-    }
-
-    public static void main(String[] args) {
-        new regView(1);
     }
 }

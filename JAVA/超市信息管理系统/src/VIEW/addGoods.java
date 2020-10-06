@@ -41,7 +41,7 @@ public class addGoods extends JFrame implements ActionListener {
         save=new JButton("保存");
         save.setFont(new Font("宋体",Font.BOLD,36));
         save.setBounds(50,580,300,50);
-        exit=new JButton("保存");
+        exit=new JButton("退出");
         exit.setFont(new Font("宋体",Font.BOLD,36));
         exit.setBounds(370,580,300,50);
         getContentPane().add(save);
@@ -63,5 +63,9 @@ public class addGoods extends JFrame implements ActionListener {
             dispose();
             new userOperateView();
         }
+    }
+
+    public static void main(String[] args) {
+        new addGoods();
     }
 }

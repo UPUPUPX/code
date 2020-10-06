@@ -13,5 +13,11 @@
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
       <jdbc-url>jdbc:sqlite:D:\CODE\JAVA\超市信息管理系统\src\data.db</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="data [3]" uuid="f90c488e-c7b9-4c9c-9c77-4925bd06ed06">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:D:\Github\code\JAVA\超市信息管理系统\src\data.db</jdbc-url>
+    </data-source>
   </component>
 </project>

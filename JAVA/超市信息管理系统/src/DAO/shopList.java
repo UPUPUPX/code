@@ -12,6 +12,15 @@ public class shopList {
     private String time;
     private String name;
     private double price;
+    private String running;
+
+    public String getRunning() {
+        return running;
+    }
+
+    public void setRunning(String running) {
+        this.running = running;
+    }
 
     public String getTime() {
         return time;
