@@ -64,8 +64,4 @@ public class addGoods extends JFrame implements ActionListener {
             new userOperateView();
         }
     }
-
-    public static void main(String[] args) {
-        new addGoods();
-    }
 }

@@ -1,17 +1,18 @@
 package Service;
-
-import DAO.Goods;
+import DAO.RUNNING;
 import DAO.shopList;
-
-import javax.swing.*;
-import javax.xml.crypto.Data;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
-
+import java.util.List;
+import java.io.BufferedWriter;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
 /**
  * @ClassName listOperate
  * @Description TODO
@@ -96,5 +97,97 @@ public class listOperate {
             throwables.printStackTrace();
         }
     }
-
+    public static void copy() throws SQLException {
+            String sql = "select * from list";
+            Connection conn = DBUtil.getConn();
+            PreparedStatement pst = null;
+            List<shopList> list = new ArrayList<shopList>();
+            try {
+                pst = (PreparedStatement) conn.prepareStatement(sql);
+                ResultSet rs = pst.executeQuery();
+                while (rs.next()) {
+                    RUNNING running=new RUNNING();
+                    int id = rs.getInt("ID");
+                    String name = rs.getString("NAME");
+                    int count = rs.getInt("COUNT");
+                    double price = rs.getDouble("PRICE");
+                    String time=rs.getString("TIME");
+                    String run=rs.getString("RUNNING");
+                    running.setId(id);
+                    running.setName(name);
+                    running.setCount(count);
+                    running.setPrice(price);
+                    running.setTime(time);
+                    running.setRunning(run);
+                    addData(running);
+                }
+                Print();
+                deletedata();
+                conn.close();
+            } catch (Exception e) {
+            }
+        }
+    public static void addData(RUNNING running){
+        String sql="insert into RUNNING (ID,NAME,COUNT,PRICE,TIME,RUNNING) values(?,?,?,?,?,?)";
+        java.sql.PreparedStatement ptmt = null;
+        try {
+            ptmt = DBUtil.getConn().prepareStatement(sql);
+            ptmt.setInt(1,running.getId());
+            ptmt.setString(2,running.getName());
+            ptmt.setInt(3, running.getCount());
+            ptmt.setDouble(4, running.getPrice());
+            ptmt.setString(5, running.getTime());
+            ptmt.setString(6,running.getRunning());
+            ptmt.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    public static void deletedata() throws SQLException {
+        String sql=" delete from list";
+        Connection conn = DBUtil.getConn();
+        PreparedStatement ps = conn.prepareStatement(sql);
+        ps.executeUpdate();
+        conn.close();
+    }
+    public static void Print() throws SQLException {
+        Connection conn = DBUtil.getConn();
+        String sql = "SELECT ID,NAME,COUNT,PRICE,TIME FROM list";
+        PreparedStatement ps=conn.prepareStatement(sql);
+        ResultSet rs = ps.executeQuery(sql);
+        while(rs.next()){
+            int id  = rs.getInt("ID");
+            String name = rs.getString("NAME");
+            int count = rs.getInt("COUNT");
+            double price=rs.getDouble("PRICE");
+            String time=rs.getString("TIME");
+            String fn = "../销售清单.txt";
+            wf(fn, "商品编号: " + id);
+            wf(fn, "商品名称: " + name);
+            wf(fn, "商品价格: " + price);
+            wf(fn, "商品数量: " + count);
+        }
+        rs.close();
+        ps.close();
+        conn.close();
+    }
+    public static void wf(String file, String conent) {
+        BufferedWriter out = null;
+        try {
+            out = new BufferedWriter(new OutputStreamWriter(
+                    new FileOutputStream(file, true)));
+            out.write(conent+"\r\n");
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                out.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 }
+
+
+

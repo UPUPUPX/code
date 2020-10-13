@@ -23,10 +23,6 @@ public class adminOperateView extends JFrame implements ActionListener {
     public Color heavyyello=new Color(254,220,0);
     public Color heavygreen= new Color(19,191,112);
     public Color heavywrite=new Color(233,243,243);
-    String [] item=new String[]{"useroperate","adminoperate","bill","state","salary","exit"};
-    public static void main(String[] args) {
-        new adminOperateView();
-    }
     public adminOperateView() {
         this.setLayout(new GridLayout(2, 3, 0, 0));
         setBackground(heavygreen);
