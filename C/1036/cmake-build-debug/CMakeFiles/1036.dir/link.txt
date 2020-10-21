@@ -1,0 +1,1 @@
+/usr/bin/c++.exe -g  -Wl,--enable-auto-import CMakeFiles/1036.dir/main.cpp.o  -o 1036.exe -Wl,--out-implib,lib1036.dll.a -Wl,--major-image-version,0,--minor-image-version,0 

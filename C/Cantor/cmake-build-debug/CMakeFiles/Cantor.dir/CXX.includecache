@@ -1,0 +1,14 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/cygdrive/d/CODE/C/Cantor/main.cpp
+cstdio
+/cygdrive/d/CODE/C/Cantor/cstdio
+math.h
+/cygdrive/d/CODE/C/Cantor/math.h
+
