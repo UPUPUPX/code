@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/cygdrive/d/CODE/C/COURSE2/main.cpp
+stdio.h
+/cygdrive/d/CODE/C/COURSE2/stdio.h
+stdlib.h
+/cygdrive/d/CODE/C/COURSE2/stdlib.h
+io.h
+/cygdrive/d/CODE/C/COURSE2/io.h
+math.h
+/cygdrive/d/CODE/C/COURSE2/math.h
+time.h
+/cygdrive/d/CODE/C/COURSE2/time.h
+
