@@ -112,6 +112,141 @@ int main(){
 
 
 
+## 1004 成绩排名 (20分)
+
+读入 *n*（>0）名学生的姓名、学号、成绩，分别输出成绩最高和成绩最低学生的姓名和学号。
+
+### 输入格式：
+
+每个测试输入包含 1 个测试用例，格式为
+
+```
+第 1 行：正整数 n
+第 2 行：第 1 个学生的姓名 学号 成绩
+第 3 行：第 2 个学生的姓名 学号 成绩
+  ... ... ...
+第 n+1 行：第 n 个学生的姓名 学号 成绩
+```
+
+其中`姓名`和`学号`均为不超过 10 个字符的字符串，成绩为 0 到 100 之间的一个整数，这里保证在一组测试用例中没有两个学生的成绩是相同的。
+
+### 输出格式：
+
+对每个测试用例输出 2 行，第 1 行是成绩最高学生的姓名和学号，第 2 行是成绩最低学生的姓名和学号，字符串间有 1 空格。
+
+### 输入样例：
+
+```in
+3
+Joe Math990112 89
+Mike CS991301 100
+Mary EE990830 95
+```
+
+### 输出样例：
+
+```out
+Mike CS991301
+Joe Math990112
+```
+
+```c++
+#include<cstdio>
+using namespace std;
+typedef struct student{
+    char name[11];
+    char id[11];
+    int score;
+};
+int main(){
+    int n;
+    scanf("%d",&n);
+    student a[n];
+    for (int i = 0; i < n; ++i) {
+        scanf("%s %s %d",&a[i].name,&a[i].id,&a[i].score);
+    }
+    student b[2];
+    b[0]=a[0];
+    b[1]=a[0];
+    for (int i = 1; i < n; ++i) {
+        if (a[i].score>b[0].score){
+            b[0]=a[i];
+        }
+        if (a[i].score<b[1].score){
+            b[1]=a[i];
+        }
+    }
+    printf("%s %s\n",b[0].name,b[0].id);
+    printf("%s %s\n",b[1].name,b[1].id);
+    return 0;
+}
+```
+
+
+
+## 1009 说反话 (20分)
+
+给定一句英语，要求你编写程序，将句中所有单词的顺序颠倒输出。
+
+### 输入格式：
+
+测试输入包含一个测试用例，在一行内给出总长度不超过 80 的字符串。字符串由若干单词和若干空格组成，其中单词是由英文字母（大小写有区分）组成的字符串，单词之间用 1 个空格分开，输入保证句子末尾没有多余的空格。
+
+### 输出格式：
+
+每个测试用例的输出占一行，输出倒序后的句子。
+
+### 输入样例：
+
+```in
+Hello World Here I Come
+```
+
+### 输出样例：
+
+```out
+Come I Here World Hello
+```
+
+```c++
+#include <cstdio>
+#include <iostream>
+#include <cstring>
+using namespace std;
+int main()
+{
+    char str[90], ans[90][90];
+    int s=0;
+    cin.get(str,90);//替换gets();会在通过。
+    int len = strlen(str), r = 0, l = 0;
+    for (int i = 0; i < len; i++)
+    {
+        if (str[i] != ' ')
+        {
+            ans[r][l++] = str[i];
+        }
+        else
+        {
+            ans[r][l] = '\0';
+            r++;
+            l = 0;
+        }
+    }
+    for (int i = r; i >= 0; i--)
+    {
+        printf("%s", ans[i]);
+        if (i > 0)
+        {
+            printf(" ");
+        }
+    }
+
+    return 0;
+}
+```
+
+
+
 ## 1032 挖掘机技术哪家强 (20分)
 
 为了用事实说明挖掘机技术到底哪家强，PAT 组织了一场挖掘机技能大赛。现请你根据比赛结果统计出技术最强的那个学校。

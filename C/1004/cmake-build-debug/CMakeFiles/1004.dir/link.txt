@@ -1,0 +1,1 @@
+/usr/bin/c++.exe -g  -Wl,--enable-auto-import CMakeFiles/1004.dir/main.cpp.o  -o 1004.exe -Wl,--out-implib,lib1004.dll.a -Wl,--major-image-version,0,--minor-image-version,0 

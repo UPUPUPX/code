@@ -1,6 +1,6 @@
-C:\Users\孙浩瑞\AppData\Local\JetBrains\CLion2020.2\cygwin_cmake\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /cygdrive/d/CODE/C/STRING
--- The C compiler identification is GNU 9.3.0
--- The CXX compiler identification is GNU 9.3.0
+C:\Users\UPUPUPX\AppData\Local\JetBrains\CLion2020.2\cygwin_cmake\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /cygdrive/d/CODE/C/STRING
+-- The C compiler identification is GNU 10.2.0
+-- The CXX compiler identification is GNU 10.2.0
 -- Check for working C compiler: /usr/bin/cc
 -- Check for working C compiler: /usr/bin/cc - works
 -- Detecting C compiler ABI info

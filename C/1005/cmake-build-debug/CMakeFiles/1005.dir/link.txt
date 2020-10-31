@@ -1,0 +1,1 @@
+/usr/bin/c++.exe -g  -Wl,--enable-auto-import CMakeFiles/1005.dir/main.cpp.o  -o 1005.exe -Wl,--out-implib,lib1005.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
