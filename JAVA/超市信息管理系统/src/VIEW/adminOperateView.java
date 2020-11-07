@@ -86,18 +86,20 @@ public class adminOperateView extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource()==useroperate){
             dispose();
-            new manageUser();
+            new manageUser(0);
         }
         if (e.getSource()==adminoperate){
             dispose();
-            new manageUser();
+            new manageUser(1);
         }
         if (e.getSource()==exit){
             dispose();
             new mainView();
         }
         if (e.getSource()==bill){
-            new adminprintlist();
+            dispose();
+            adminprintlist bills=new adminprintlist();
+            bills.mainrun();
         }
         if (e.getSource()==salary){
 
@@ -105,6 +107,5 @@ public class adminOperateView extends JFrame implements ActionListener {
         if (e.getSource()==state){
             JOptionPane.showMessageDialog(null, "新功能正在开发当中");
         }
-
     }
 }

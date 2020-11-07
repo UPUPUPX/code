@@ -32,6 +32,7 @@ public class regView extends JFrame implements ActionListener {
     JPasswordField ipassword;
     User user=new User();
     private int flag;
+    public int getFlag() { return flag; }
     public void setFlag(int flag) { this.flag = flag; }
     public regView(int n) {
         regname = new JLabel("用户名");
@@ -122,14 +123,12 @@ public class regView extends JFrame implements ActionListener {
                     JOptionPane.showMessageDialog(null, "用户已存在");;
                 }
                 else {
-
-                    if (flag == 0) {
+                    if (getFlag()== 0) {
                         user.setState(0);
-                    } else {
+                    } else if(getFlag()==1){
                         user.setState(1);
                     }
                     userOperator.Insert(user);
-                    System.out.println(user.getName());
                 }
             } catch (SQLException throwables) {
                 throwables.printStackTrace();

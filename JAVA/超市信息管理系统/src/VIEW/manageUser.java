@@ -24,8 +24,11 @@ public class manageUser extends JFrame implements ActionListener {
     JButton delete;
     JButton add;
     User user;
+    private int status;
+    public int getStatus() {return status; }
+    public void setStatus(int status) { this.status = status; }
     public Color bluegreen =new Color(0,127,127);
-    public manageUser(){
+    public manageUser(int status){
         setBounds(1,1,720,480);
         username=new JLabel("用户名");
         username.setFont(new Font("宋体",Font.BOLD,36));
@@ -58,15 +61,16 @@ public class manageUser extends JFrame implements ActionListener {
         add.setBounds(490,300,150,50);
         add.setBackground(bluegreen);
         getContentPane().add(add);
-        exit.addActionListener(this::actionPerformed);
-        delete.addActionListener(this::actionPerformed);
-        add.addActionListener(this::actionPerformed);
+        exit.addActionListener(this);
+        delete.addActionListener(this);
+        add.addActionListener(this);
         getContentPane().setLayout(null);
         setVisible(true);
+        setStatus(status);
     }
     public void actionPerformed(ActionEvent e) {
         if (e.getSource()==add){
-            new regView(0);
+            new regView(getStatus());
         }
         if (e.getSource()==delete){
             UserOperator userOperator=new UserOperator();

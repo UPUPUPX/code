@@ -45,6 +45,16 @@ public class userOperateView extends JFrame implements ActionListener,TableModel
     GoodsOperate goodsOperate=new GoodsOperate();
     listOperate listOperate=new listOperate();
     public int rows;
+    private double s;
+
+    public double getS() {
+        return s;
+    }
+
+    public void setS(double s) {
+        this.s = s;
+    }
+
     public Color heavywrite = new Color(233, 243, 243);
     public Color bluegreen = new Color(0, 127, 127);
     final JScrollPane scrollPane = new JScrollPane();
@@ -141,10 +151,10 @@ public class userOperateView extends JFrame implements ActionListener,TableModel
         delgoods.setBounds(260, 200, 120, 50);
         delgoods.setFont(new Font("宋体", Font.BOLD, 20));
         getContentPane().add(delgoods);
-        addgoods.addActionListener(this::actionPerformed);
-        print.addActionListener(this::actionPerformed);
-        add.addActionListener(this::actionPerformed);
-        delgoods.addActionListener(this::actionPerformed);
+        addgoods.addActionListener(this);
+        print.addActionListener(this);
+        add.addActionListener(this);
+        delgoods.addActionListener(this);
         setVisible(true);
         goods.setID(Integer.parseInt(id.getText()));
         goods.setAccount(Integer.parseInt(counts.getText()));
@@ -152,7 +162,7 @@ public class userOperateView extends JFrame implements ActionListener,TableModel
     }
     public void actionPerformed(ActionEvent e) {
         try {
-            shopList=listOperate.findlist(Integer.parseInt(id.getText()));
+            shopList= Service.listOperate.findlist(Integer.parseInt(id.getText()));
             shopList.setCount(Integer.parseInt(counts.getText()));
         } catch (SQLException throwables) {
             throwables.printStackTrace();
@@ -160,13 +170,7 @@ public class userOperateView extends JFrame implements ActionListener,TableModel
         if (e.getSource() == delgoods) {
             tableModel.removeRow(rows);
             goodsOperate.delgoods(goods);
-            listOperate.delgoodslist(shopList);
-        }else if (e.getSource() == print) {
-            try {
-                listOperate.copy();
-            } catch (SQLException throwables) {
-                throwables.printStackTrace();
-            }
+            Service.listOperate.delgoodslist(shopList);
         }
         else if (e.getSource()==add){
             String[] rowValues = {String.valueOf(shopList.getId()),String.valueOf(shopList.getName()),counts.getText(),String.valueOf(shopList.getPrice())};
@@ -174,10 +178,18 @@ public class userOperateView extends JFrame implements ActionListener,TableModel
             Calendar calendar = Calendar.getInstance();
             long timeInMillis = calendar.getTimeInMillis();
             shopList.setRunning(String.valueOf(timeInMillis));
-            listOperate.addlistgoods(shopList);
+            Service.listOperate.addlistgoods(shopList);
         }
         else if (e.getSource()==addgoods){
             new addGoods();
+        }
+        else if (e.getSource()==print){
+            if (Double.parseDouble(jTextFieldpay.getText())<getS()){
+                JOptionPane.showMessageDialog(null, "金额不足");
+            }
+            else{
+                new ReceivePayView(Double.parseDouble(jTextFieldpay.getText()),getS());
+            }
         }
     }
     public static void main(String[] args) {
@@ -204,6 +216,7 @@ public class userOperateView extends JFrame implements ActionListener,TableModel
                 double b = shopList.getPrice();
                 jTextFieldtotal.setText(String.valueOf(sum + a * b));
                 this.repaint();
+                setS(sum + a * b);
             } catch (Exception e) {
             }
         }

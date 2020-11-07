@@ -52,13 +52,12 @@ public class adminprintlist extends JPanel{
         protected String selectedDay;
         protected boolean isConfirm;
         JTextField textField;
-        JButton exit;
         public String showit(){return textField.getText();}
         public boolean isConfirm() { return isConfirm; }
         public String getDateText() { return format.format(getDate()); }
         public void setDate(Date date) { this.date = date; }
         public Date getDate() { return date; }
-        public static void main(String[] args) {
+        public void mainrun() {
         final JFrame frame = new JFrame("时间选择器");
         frame.setLayout(new FlowLayout(FlowLayout.CENTER, 50, 50));
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -96,9 +95,7 @@ public class adminprintlist extends JPanel{
         public adminprintlist() {
             this(new SimpleDateFormat("yyyyMMdd"));
         }
-        public adminprintlist(DateFormat format) {
-            this(format, new Date());
-        }
+        public adminprintlist(DateFormat format) { this(format, new Date()); }
         public adminprintlist(DateFormat format, Date date) {
             this(format, date, 1980, 2080);
         }

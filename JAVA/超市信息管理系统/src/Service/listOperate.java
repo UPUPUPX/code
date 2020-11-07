@@ -97,59 +97,6 @@ public class listOperate {
             throwables.printStackTrace();
         }
     }
-    public static void copy() throws SQLException {
-            String sql = "select * from list";
-            Connection conn = DBUtil.getConn();
-            PreparedStatement pst = null;
-            List<shopList> list = new ArrayList<shopList>();
-            try {
-                pst = (PreparedStatement) conn.prepareStatement(sql);
-                ResultSet rs = pst.executeQuery();
-                while (rs.next()) {
-                    RUNNING running=new RUNNING();
-                    int id = rs.getInt("ID");
-                    String name = rs.getString("NAME");
-                    int count = rs.getInt("COUNT");
-                    double price = rs.getDouble("PRICE");
-                    String time=rs.getString("TIME");
-                    String run=rs.getString("RUNNING");
-                    running.setId(id);
-                    running.setName(name);
-                    running.setCount(count);
-                    running.setPrice(price);
-                    running.setTime(time);
-                    running.setRunning(run);
-                    addData(running);
-                }
-                Print();
-                deletedata();
-                conn.close();
-            } catch (Exception e) {
-            }
-        }
-    public static void addData(RUNNING running){
-        String sql="insert into RUNNING (ID,NAME,COUNT,PRICE,TIME,RUNNING) values(?,?,?,?,?,?)";
-        java.sql.PreparedStatement ptmt = null;
-        try {
-            ptmt = DBUtil.getConn().prepareStatement(sql);
-            ptmt.setInt(1,running.getId());
-            ptmt.setString(2,running.getName());
-            ptmt.setInt(3, running.getCount());
-            ptmt.setDouble(4, running.getPrice());
-            ptmt.setString(5, running.getTime());
-            ptmt.setString(6,running.getRunning());
-            ptmt.execute();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-    public static void deletedata() throws SQLException {
-        String sql=" delete from list";
-        Connection conn = DBUtil.getConn();
-        PreparedStatement ps = conn.prepareStatement(sql);
-        ps.executeUpdate();
-        conn.close();
-    }
     public static void Print() throws SQLException {
         Connection conn = DBUtil.getConn();
         String sql = "SELECT ID,NAME,COUNT,PRICE,TIME FROM list";
@@ -181,6 +128,7 @@ public class listOperate {
             e.printStackTrace();
         } finally {
             try {
+                assert out != null;
                 out.close();
             } catch (IOException e) {
                 e.printStackTrace();

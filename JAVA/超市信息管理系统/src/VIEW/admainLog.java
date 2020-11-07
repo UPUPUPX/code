@@ -18,7 +18,7 @@ import java.sql.SQLException;
  * @Author 孙浩瑞
  * @Date 2020/9/16 22:00
  */
-public class admainView extends JFrame implements ActionListener {
+public class admainLog extends JFrame implements ActionListener {
     JLabel name;
     JLabel pass;
     JButton log;
@@ -27,7 +27,7 @@ public class admainView extends JFrame implements ActionListener {
     JTextField username;
     JButton lab;
     JPasswordField ipassword;
-    public admainView(){
+    public admainLog(){
         name=new JLabel("账号");
         pass=new JLabel("密码");
         log=new JButton("登录");
@@ -59,7 +59,7 @@ public class admainView extends JFrame implements ActionListener {
         forget.setBorderPainted(false);
         forget.setFocusPainted(false);
         forget.setContentAreaFilled(false);
-        forget.addActionListener(this::actionPerformed);
+        forget.addActionListener(this);
         getContentPane().add(forget);
         lab = new JButton();
         lab.setBorder(new TitledBorder(null, "", TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, null, null));
@@ -95,7 +95,7 @@ public class admainView extends JFrame implements ActionListener {
             user.setState(1);
             UserOperator userOperator=new UserOperator();
             try {
-                User u= userOperator.FindUser(username.getName());
+                User u= userOperator.FindUser(user.getName());
                 if (u!=null){
                     if (u.getPass().equals(user.getName())&&u.getName().equals(user.getName())&&u.getState()==user.getState()){
                         dispose();

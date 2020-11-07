@@ -27,7 +27,6 @@ public class mainView extends JFrame implements ActionListener {
     JTextField username;
     JPasswordField ipass;
     User user;
-    public String getp() { return String.valueOf(ipass.getPassword()); }
     public mainView() {
             name = new JLabel("用户名");
             name.setBounds(76, 166, 120, 30);
@@ -89,7 +88,7 @@ public class mainView extends JFrame implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             if (e.getSource() == adminlog) {
                 dispose();
-                new admainView();
+                new admainLog();
             } else if (e.getSource() == forget) {
                 dispose();
                 new forgetView();
@@ -113,8 +112,5 @@ public class mainView extends JFrame implements ActionListener {
                     throwables.printStackTrace();
                 }
             }
-    }
-    public static void main(String[] args) {
-        new mainView();
     }
 }
