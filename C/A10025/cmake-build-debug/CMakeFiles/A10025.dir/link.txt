@@ -1,0 +1,1 @@
+/usr/bin/c++.exe -g  -Wl,--enable-auto-import CMakeFiles/A10025.dir/main.cpp.o  -o A10025.exe -Wl,--out-implib,libA10025.dll.a -Wl,--major-image-version,0,--minor-image-version,0 

@@ -1,4 +1,3 @@
-package com.ler.pai.service.impl;
 
 import com.alibaba.fastjson.JSONObject;
 import com.ler.pai.service.MusicService;
@@ -11,11 +10,6 @@ import java.util.regex.Pattern;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
-
-/**
- * @author lww
- * @date 2020-01-30 18:09
- */
 @Service
 @Slf4j
 public class MusicServiceImpl implements MusicService {
