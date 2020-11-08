@@ -1,10 +1,15 @@
 package VIEW;
 
+import DAO.shopList;
+import Service.printl;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.ColorModel;
+import java.io.IOException;
+import java.util.LinkedList;
 
 public class ReceivePayView extends JFrame implements ActionListener {
     private JLabel charge;
@@ -14,7 +19,8 @@ public class ReceivePayView extends JFrame implements ActionListener {
     public int height = Toolkit.getDefaultToolkit().getScreenSize().height;
     public int windowsWedth = 600;
     public int windowsHeight = 400;
-    public ReceivePayView(double in,double charges) {
+    LinkedList<shopList> p=new LinkedList<>();
+    public ReceivePayView(double in, double charges, LinkedList<shopList> shoplist) {
         getContentPane().setLayout(null);
         this.setTitle("找零");
         this.setVisible(true);
@@ -39,10 +45,15 @@ public class ReceivePayView extends JFrame implements ActionListener {
         getContentPane().add(exit);
         getContentPane().add(print);
         getContentPane().add(exit);
+        p.addAll(shoplist);
     }
     public void actionPerformed(ActionEvent e) {
         if (e.getSource()==print){
-
+            try {
+                new printl(p);
+            } catch (IOException ioException) {
+                ioException.printStackTrace();
+            }
         }
         else if (e.getSource()==exit){
             dispose();

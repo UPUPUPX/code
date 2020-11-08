@@ -3,6 +3,7 @@ import DAO.Goods;
 import DAO.shopList;
 import Service.GoodsOperate;
 import Service.listOperate;
+
 import javax.swing.*;
 import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
@@ -12,6 +13,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.util.Calendar;
+import java.util.LinkedList;
 
 /**
  * @ClassName userOperateView
@@ -54,7 +56,7 @@ public class userOperateView extends JFrame implements ActionListener,TableModel
     public void setS(double s) {
         this.s = s;
     }
-
+    private final LinkedList<shopList> p=new LinkedList<shopList>();
     public Color heavywrite = new Color(233, 243, 243);
     public Color bluegreen = new Color(0, 127, 127);
     final JScrollPane scrollPane = new JScrollPane();
@@ -171,6 +173,7 @@ public class userOperateView extends JFrame implements ActionListener,TableModel
             tableModel.removeRow(rows);
             goodsOperate.delgoods(goods);
             Service.listOperate.delgoodslist(shopList);
+            p.remove(shopList);
         }
         else if (e.getSource()==add){
             String[] rowValues = {String.valueOf(shopList.getId()),String.valueOf(shopList.getName()),counts.getText(),String.valueOf(shopList.getPrice())};
@@ -179,6 +182,7 @@ public class userOperateView extends JFrame implements ActionListener,TableModel
             long timeInMillis = calendar.getTimeInMillis();
             shopList.setRunning(String.valueOf(timeInMillis));
             Service.listOperate.addlistgoods(shopList);
+            p.add(shopList);
         }
         else if (e.getSource()==addgoods){
             new addGoods();
@@ -188,7 +192,8 @@ public class userOperateView extends JFrame implements ActionListener,TableModel
                 JOptionPane.showMessageDialog(null, "金额不足");
             }
             else{
-                new ReceivePayView(Double.parseDouble(jTextFieldpay.getText()),getS());
+                new ReceivePayView(Double.parseDouble(jTextFieldpay.getText()),getS(),p);
+                p.clear();
             }
         }
     }
