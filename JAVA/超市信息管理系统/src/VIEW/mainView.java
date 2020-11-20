@@ -27,6 +27,13 @@ public class mainView extends JFrame implements ActionListener {
     JPasswordField ipass;
     User user;
     public mainView() {
+        setTitle("超市信息管理系统");
+        setSize( 560, 420);
+        getContentPane().setLayout(null);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        ImageIcon imageIcon=new ImageIcon("./lib/TextBank.png");
+        this.setIconImage(imageIcon.getImage());
+        this.setLocationRelativeTo(null);
         name = new JLabel("用户名");
         name.setBounds(76, 166, 120, 30);
         name.setFont(new Font("", Font.BOLD, 24));
@@ -65,13 +72,6 @@ public class mainView extends JFrame implements ActionListener {
         jButton.setFocusPainted(false);
         jButton.setContentAreaFilled(false);
         getContentPane().add(jButton);
-        setTitle("超市信息管理系统");
-        setSize( 560, 420);
-        getContentPane().setLayout(null);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        ImageIcon imageIcon=new ImageIcon("./lib/TextBank.png");
-        this.setIconImage(imageIcon.getImage());
-        this.setLocationRelativeTo(null);
         forget= new JButton("忘记密码");
         forget.setBounds(400, 214, 100, 30);
         forget.setBorderPainted(false);

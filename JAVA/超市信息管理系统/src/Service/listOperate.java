@@ -1,12 +1,16 @@
 package Service;
 import DAO.RUNNING;
 import DAO.shopList;
+import com.sun.org.apache.xpath.internal.objects.XString;
+import com.sun.org.apache.xpath.internal.objects.XStringForChars;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.io.BufferedWriter;
@@ -24,8 +28,14 @@ public class listOperate {
         SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yyyyMMdd");
         return simpleDateFormat.format(new Date());
     }
+    public static String getdate(){
+        Calendar calendar = Calendar.getInstance();
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String t= formatter.format(calendar.getTime());
+        return t;
+    }
     public static shopList findlist(int id) throws SQLException {
-        String sql = "select * from GOODS where RUNNING=?";
+        String sql = "select * from GOODS where ID=?";
         shopList shopList=new shopList();
         Connection conn = DBUtil.getConn();
         PreparedStatement ps = conn.prepareStatement(sql);
@@ -37,6 +47,7 @@ public class listOperate {
             shopList.setPrice(rs.getInt("OUTPRICE"));
             shopList.setTime(gettime());
         }
+        conn.close();
         return shopList;
     }
     public static shopList addlistcount(shopList shopList){
@@ -70,7 +81,7 @@ public class listOperate {
         return shopList;
     }
     public static void addlistgoods(shopList shopList){
-        String sql="insert into `list`(`ID`,`NAME`,`COUNT`,`PRICE`,`TIME`) "+"VALUES (?,?,?,?,?)";
+        String sql="insert into `list`(`ID`,`NAME`,`COUNT`,`PRICE`,`TIME`,`RUNNIMG`) "+"VALUES (?,?,?,?,?,?)";
         try {
             Connection conn = DBUtil.getConn();
             PreparedStatement ps=conn.prepareStatement(sql);
@@ -79,6 +90,7 @@ public class listOperate {
             ps.setDouble(3,shopList.getCount());
             ps.setDouble(4,shopList.getPrice());
             ps.setString(5,gettime());
+            ps.setString(6,getdate());
             ps.executeUpdate();
             conn.close();
         } catch (SQLException throwables) {

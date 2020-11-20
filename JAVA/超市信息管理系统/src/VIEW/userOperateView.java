@@ -45,14 +45,11 @@ public class userOperateView extends JFrame implements ActionListener,TableModel
     Goods goods=new Goods();
     shopList shopList=new shopList();
     GoodsOperate goodsOperate=new GoodsOperate();
-    listOperate listOperate=new listOperate();
     public int rows;
     private double s;
-
     public double getS() {
         return s;
     }
-
     public void setS(double s) {
         this.s = s;
     }
@@ -85,13 +82,11 @@ public class userOperateView extends JFrame implements ActionListener,TableModel
         total.setFont(new Font("宋体", Font.BOLD, 36));
         total.setBounds(40, 400, 180, 50);
         getContentPane().add(total);
-        jTextFieldtotal = new JLabel();
+        jTextFieldtotal = new JLabel(String.valueOf(getS()));
         jTextFieldtotal.setFont(new Font("宋体", Font.BOLD, 36));
         jTextFieldtotal.setBounds(260, 400, 300, 50);
         jTextFieldtotal.setBackground(heavywrite);
         getContentPane().add(jTextFieldtotal);
-        thread = new Thread(this::run);
-        thread.start();
         pay = new JLabel("付款");
         pay.setFont(new Font("宋体", Font.BOLD, 36));
         pay.setBounds(40, 500, 180, 50);
@@ -174,6 +169,8 @@ public class userOperateView extends JFrame implements ActionListener,TableModel
             goodsOperate.delgoods(goods);
             Service.listOperate.delgoodslist(shopList);
             p.remove(shopList);
+            double mon=Double.parseDouble(jTextFieldtotal.getText())-Double.parseDouble(String.valueOf(shopList.getCount()*shopList.getPrice()));
+            jTextFieldtotal.setText(String.valueOf(mon));
         }
         else if (e.getSource()==add){
             String[] rowValues = {String.valueOf(shopList.getId()),String.valueOf(shopList.getName()),counts.getText(),String.valueOf(shopList.getPrice())};
@@ -183,6 +180,8 @@ public class userOperateView extends JFrame implements ActionListener,TableModel
             shopList.setRunning(String.valueOf(timeInMillis));
             Service.listOperate.addlistgoods(shopList);
             p.add(shopList);
+            double mon=Double.parseDouble(jTextFieldtotal.getText())+Double.parseDouble(String.valueOf(shopList.getCount()*shopList.getPrice()));
+            jTextFieldtotal.setText(String.valueOf(mon));
         }
         else if (e.getSource()==addgoods){
             new addGoods();
@@ -197,9 +196,6 @@ public class userOperateView extends JFrame implements ActionListener,TableModel
             }
         }
     }
-    public static void main(String[] args) {
-        new userOperateView();
-    }
     @Override
     public void tableChanged(TableModelEvent e) {
         int type = e.getType();
@@ -209,21 +205,7 @@ public class userOperateView extends JFrame implements ActionListener,TableModel
         else if (type == TableModelEvent.DELETE) { rows=row;}
         else { rows=row;}
     }
-    public void run() {
-        double sum = 0;
-        while (true) {
-            if (jTextFieldtotal.getText().equals("")) {
-                jTextFieldtotal.setText("0.00");
-                this.repaint();
-            }
-            try {
-                int a = shopList.getCount();
-                double b = shopList.getPrice();
-                jTextFieldtotal.setText(String.valueOf(sum + a * b));
-                this.repaint();
-                setS(sum + a * b);
-            } catch (Exception e) {
-            }
-        }
+    public static void main(String[] args) {
+        new userOperateView();
     }
 }

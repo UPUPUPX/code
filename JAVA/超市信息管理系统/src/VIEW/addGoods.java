@@ -7,7 +7,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.logging.XMLFormatter;
 
 /**
  * @ClassName addGoods
@@ -23,6 +22,7 @@ public class addGoods extends JFrame implements ActionListener {
     String[] strings={"商品编号","商品名称","商品进价","商品售价","商品数量"};
     GoodsOperate goodsOperate=new GoodsOperate();
     public addGoods(){
+        setTitle("商品入库");
         setSize(800,680);
         setVisible(true);
         getContentPane().setLayout(null);
@@ -55,13 +55,18 @@ public class addGoods extends JFrame implements ActionListener {
             goods.setID(Integer.parseInt(jTextFields[0].getText()));
             goods.setName(jTextFields[1].getText());
             goods.setInprice(Float.parseFloat(jTextFields[2].getText()));
-            goods.setOutprice(Float.parseFloat(jTextFields[3].getText()));
+            goods.setOutprice(Double.parseDouble(jTextFields[3].getText()));
             goods.setAccount(Integer.parseInt(jTextFields[4].getText()));
             goodsOperate.addgoods(goods);
+            dispose();
+            new addGoods();
         }
         else{
             dispose();
-            new userOperateView();
         }
+    }
+
+    public static void main(String[] args) {
+        new addGoods();
     }
 }

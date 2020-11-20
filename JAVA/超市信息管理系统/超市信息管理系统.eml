@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<component inherit-compiler-output="true" inheritJdk="true">
-	<output-test url="file://$MODULE_DIR$/out/test/超市信息管理系统"/>
-	<exclude-output/>
-	<contentEntry url="file://$MODULE_DIR$"/>
-	<levels>
-		<level name="commons-pool-1.6" value="project"/>
-	</levels>
-</component>

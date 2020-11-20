@@ -21,19 +21,15 @@ public class Goods {
     public String getName() {
         return name;
     }
-
     public void setName(String name) {
         this.name = name;
     }
-
     public double getInprice() {
         return inprice;
     }
-
     public void setInprice(double inprice) {
         this.inprice = inprice;
     }
-
     public double getOutprice() {
         return outprice;
     }

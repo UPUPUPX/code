@@ -40,7 +40,7 @@ public class manageUser extends JFrame implements ActionListener {
         getContentPane().add(jusername);
         changepass=new JLabel("用户密码");
         changepass.setFont(new Font("宋体",Font.BOLD,36));
-        changepass.setBounds(80,160,150,50);
+        changepass.setBounds(80,160,160,50);
         getContentPane().add(changepass);
         jchangepass=new JPasswordField();
         jchangepass.setFont(new Font("宋体",Font.BOLD,36));

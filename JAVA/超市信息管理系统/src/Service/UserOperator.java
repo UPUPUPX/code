@@ -28,10 +28,13 @@ public class UserOperator {
             user.setQuestion(rs.getString("QUESTION"));
             user.setAnswer(rs.getString("ANSWER"));
             user.setState(rs.getInt("STATE"));
+            conn.close();
             return user;
         } else {
+            conn.close();
             return null;
         }
+
     }
     public void Insert(User user) throws SQLException {
         String sql="insert into `user`(`ID`, `PASSWD`, `QUESTION`, `ANSWER`,`STATE`,`DEPARTMENT`) "+"VALUES (?,?,?,?,?,?)";
@@ -81,6 +84,7 @@ public class UserOperator {
             JOptionPane.showMessageDialog(null, "删除成功");
         }
         else{
+            conn.close();
             JOptionPane.showMessageDialog(null, "该用户不存在");
         }
     }

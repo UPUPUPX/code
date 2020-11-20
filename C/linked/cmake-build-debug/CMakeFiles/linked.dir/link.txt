@@ -1,0 +1,1 @@
+/usr/bin/c++.exe -g  -Wl,--enable-auto-import CMakeFiles/linked.dir/main.cpp.o  -o linked.exe -Wl,--out-implib,liblinked.dll.a -Wl,--major-image-version,0,--minor-image-version,0 

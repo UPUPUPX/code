@@ -21,7 +21,6 @@ public class UserOperator {
         PreparedStatement ps = conn.prepareStatement(sql);
         ps.setString(1, str);
         ResultSet rs = ps.executeQuery();
-
         if (rs.next()) {
             User user = new User();
             user.setId(rs.getString("ACCOUNT"));

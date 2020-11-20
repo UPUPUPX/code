@@ -2,6 +2,7 @@ package Service;
 
 import DAO.Goods;
 
+import javax.print.DocFlavor;
 import javax.swing.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -32,7 +33,10 @@ public class GoodsOperate {
                 if (goods.getAccount()<10){
                     JOptionPane.showMessageDialog(null, "库存不足,请通知相关人员补货,还剩"+goods.getAccount()+"个");
                 }
+                conn.close();
+                return goods;
             } else{
+                JOptionPane.showMessageDialog(null, "未查到商品相关信息");
                 return goods=null;
             }
         } catch (SQLException throwables) {
@@ -53,6 +57,7 @@ public class GoodsOperate {
             if (goods.getAccount()<=0){
                 JOptionPane.showMessageDialog(null, "库房已无货");
             }
+            conn.close();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
