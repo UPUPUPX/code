@@ -2,24 +2,11 @@ package DAO;
 
 public class BOOK {
     private int ID;
-    private String dept;
     private String name;
     private String press;
     private String author;
-    private String contract;
     private int price;
     private String supplier;
-    private CLASS aClass;
-    private TEACHER teacher;
-    private int num;
-
-    public int getNum() {
-        return num;
-    }
-
-    public void setNum(int num) {
-        this.num = num;
-    }
 
     public int getID() {
         return ID;
@@ -27,14 +14,6 @@ public class BOOK {
 
     public void setID(int ID) {
         this.ID = ID;
-    }
-
-    public String getDept() {
-        return dept;
-    }
-
-    public void setDept(String dept) {
-        this.dept = dept;
     }
 
     public String getName() {
@@ -61,14 +40,6 @@ public class BOOK {
         this.author = author;
     }
 
-    public String getContract() {
-        return contract;
-    }
-
-    public void setContract(String contract) {
-        this.contract = contract;
-    }
-
     public int getPrice() {
         return price;
     }
@@ -83,21 +54,5 @@ public class BOOK {
 
     public void setSupplier(String supplier) {
         this.supplier = supplier;
-    }
-
-    public CLASS getaClass() {
-        return aClass;
-    }
-
-    public void setaClass(CLASS aClass) {
-        this.aClass = aClass;
-    }
-
-    public TEACHER getTeacher() {
-        return teacher;
-    }
-
-    public void setTeacher(TEACHER teacher) {
-        this.teacher = teacher;
     }
 }

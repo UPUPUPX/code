@@ -3,8 +3,8 @@ package DAO;
 public class STORE {
     private int ID;
     private String name;
-    private String num;
-    private String total;
+    private int flag;
+    private int total;
 
     public int getID() {
         return ID;
@@ -22,19 +22,19 @@ public class STORE {
         this.name = name;
     }
 
-    public String getNum() {
-        return num;
+    public int getFlag() {
+        return flag;
     }
 
-    public void setNum(String num) {
-        this.num = num;
+    public void setFlag(int flag) {
+        this.flag = flag;
     }
 
-    public String getTotal() {
+    public int getTotal() {
         return total;
     }
 
-    public void setTotal(String total) {
+    public void setTotal(int total) {
         this.total = total;
     }
 }

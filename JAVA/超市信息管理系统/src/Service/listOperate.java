@@ -1,18 +1,13 @@
 package Service;
-import DAO.RUNNING;
 import DAO.shopList;
-import com.sun.org.apache.xpath.internal.objects.XString;
-import com.sun.org.apache.xpath.internal.objects.XStringForChars;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
 import java.io.BufferedWriter;
 import java.io.FileOutputStream;
 import java.io.IOException;

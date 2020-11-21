@@ -19,19 +19,17 @@ public class BookService {
         if(rs.next()){
             BOOK book = new BOOK();
             book.setName(rs.getString("name"));
+            book.setPress(rs.getString("press"));
             book.setAuthor(rs.getString("author"));
             book.setPrice(rs.getInt("price"));
-            book.setPress(rs.getString("press"));
             book.setSupplier(rs.getString("supplier"));
-            book.setContract(rs.getString("contract"));
-            book.setNum(rs.getInt("num"));
             return book;
         }else{
             return null;
         }
     }
     public void Insert(BOOK book) throws SQLException{
-        String sql = "insert into 'BOOK'('name','press','author','price','supplier','num','contract','cID','tID')";
+        String sql = "insert into 'BOOK'('name','press','author','price','supplier')"+"VALUES(?,?,?,?,?)";
         Connection conn = DBUtil.getConn();
         BOOK book1 = FindBook(book.getName());
         if(book1==null){
@@ -41,17 +39,13 @@ public class BookService {
             ps.setString(3,book.getAuthor());
             ps.setInt(4,book.getPrice());
             ps.setString(5,book.getSupplier());
-            ps.setInt(6,book.getNum());
-            ps.setString(7,book.getContract());
-            ps.setInt(8,book.getaClass().getID());
-            ps.setInt(9,book.getTeacher().getID());
             ps.executeLargeUpdate();
             conn.close();
-            JOptionPane.showMessageDialog(null,"注册成功");
+            JOptionPane.showMessageDialog(null,"添加成功");
         }
     }
     public  void update(BOOK book) throws SQLException{
-        String sql = "update `BOOK` set name=?,press=?,author=?,price=?,supplier=?,num=?,contract=?,cID=?,tID=?";
+        String sql = "update `BOOK` set name=?,press=?,author=?,price=?,supplier=?";
         Connection conn=DBUtil.getConn();
         PreparedStatement ps=conn.prepareStatement(sql);
         ps.setString(1,book.getName());
@@ -59,10 +53,6 @@ public class BookService {
         ps.setString(3,book.getAuthor());
         ps.setInt(4,book.getPrice());
         ps.setString(5,book.getSupplier());
-        ps.setInt(6,book.getNum());
-        ps.setString(7,book.getContract());
-        ps.setInt(8,book.getaClass().getID());
-        ps.setInt(9,book.getTeacher().getID());
         ps.executeUpdate();
         conn.close();
         JOptionPane.showMessageDialog(null,"修改成功");

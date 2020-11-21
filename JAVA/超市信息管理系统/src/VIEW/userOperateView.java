@@ -171,6 +171,7 @@ public class userOperateView extends JFrame implements ActionListener,TableModel
             p.remove(shopList);
             double mon=Double.parseDouble(jTextFieldtotal.getText())-Double.parseDouble(String.valueOf(shopList.getCount()*shopList.getPrice()));
             jTextFieldtotal.setText(String.valueOf(mon));
+            setS(mon);
         }
         else if (e.getSource()==add){
             String[] rowValues = {String.valueOf(shopList.getId()),String.valueOf(shopList.getName()),counts.getText(),String.valueOf(shopList.getPrice())};
@@ -182,11 +183,13 @@ public class userOperateView extends JFrame implements ActionListener,TableModel
             p.add(shopList);
             double mon=Double.parseDouble(jTextFieldtotal.getText())+Double.parseDouble(String.valueOf(shopList.getCount()*shopList.getPrice()));
             jTextFieldtotal.setText(String.valueOf(mon));
+            setS(mon);
         }
         else if (e.getSource()==addgoods){
             new addGoods();
         }
         else if (e.getSource()==print){
+            assert jTextFieldpay != null;
             if (Double.parseDouble(jTextFieldpay.getText())<getS()){
                 JOptionPane.showMessageDialog(null, "金额不足");
             }
@@ -194,6 +197,7 @@ public class userOperateView extends JFrame implements ActionListener,TableModel
                 new ReceivePayView(Double.parseDouble(jTextFieldpay.getText()),getS(),p);
                 p.clear();
             }
+            tableModel.setRowCount(0);
         }
     }
     @Override

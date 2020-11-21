@@ -2,9 +2,18 @@ package DAO;
 
 public class CLASS {
     private int ID;
+    private String XName;
     private String ClassName;
     private int num;
     private int bnum;
+
+    public String getXName() {
+        return XName;
+    }
+
+    public void setXName(String XName) {
+        this.XName = XName;
+    }
 
     public int getID() {
         return ID;

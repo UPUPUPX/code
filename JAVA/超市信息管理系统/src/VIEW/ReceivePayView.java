@@ -53,6 +53,7 @@ public class ReceivePayView extends JFrame implements ActionListener {
             } catch (IOException ioException) {
                 ioException.printStackTrace();
             }
+            dispose();
         }
         else if (e.getSource()==exit){
             dispose();

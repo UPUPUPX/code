@@ -1,6 +1,7 @@
 package View;
 
 import DAO.USER;
+import Model.Encrypt;
 import Model.LoginList;
 import Service.UserService;
 
@@ -108,10 +109,15 @@ public class Login extends JFrame implements ActionListener {
         else if (e.getSource() == login) {
             UserService userService = new UserService();
             try {
+                Encrypt encrypt=new Encrypt();
+                String sh=(String)jComboBox.getSelectedItem();
                 if (userService.FindUser(name.getText())!= null) {
-                    if (userService.FindUser(name.getText()).getUSERNAME().equals(name.getText()) && userService.FindUser(name.getText()).getUSERPASS().equals(String.valueOf(word.getPassword()))) {
+                    if (userService.FindUser(name.getText()).getSHENFEN().equals(sh)&&userService.FindUser(name.getText()).getUSERNAME().equals(name.getText()) && encrypt.encode(userService.FindUser(name.getText()).getUSERPASS()).equals(String.valueOf(word.getPassword()))) {
                         dispose();
-                        new UserService();
+                        if(sh == "系部")new XBook();
+                        else if(sh == "教材科")new JBook();
+                        else if(sh == "教师")new TBook(name.getText());
+                        else if(sh == "班级")new CBook();
                     } else {
                         JOptionPane.showMessageDialog(null, "用户名或密码错误");
                     }

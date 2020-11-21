@@ -5,20 +5,17 @@ import DAO.BOOK;
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
 import javax.swing.event.TableModelEvent;
-import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class JBook extends JFrame implements ActionListener {
-
-    JButton BookBuy;
-    JButton Store;
-    JButton Deliver;
-    JButton Charge;
-    JButton Supplier;
-    JButton Jbook;
+public class XBook extends JFrame implements ActionListener {
+    JButton CourseAdmin;
+    JButton BookAdmin;
+    JButton TeacherAdmin;
+    JButton ClassAdmin;
+    JButton UserAdmin;
     JButton jButton;
     BOOK book;
     JTable table;
@@ -26,49 +23,43 @@ public class JBook extends JFrame implements ActionListener {
     JTextField textField;
     int rows;
 
-    public JBook(){
+    public XBook(){
         super();
-        BookBuy = new JButton("教材订购管理");
-        BookBuy.setText("教材订购管理");
-        BookBuy.setBounds(10,48,190,46);
-        BookBuy.setFont(new Font("", Font.BOLD,24));
-        getContentPane().add(BookBuy);
+        CourseAdmin = new JButton("课程管理");
+        CourseAdmin.setText("课程管理");
+        CourseAdmin.setBounds(10,48,190,46);
+        CourseAdmin.setFont(new Font("", Font.BOLD,24));
+        getContentPane().add(CourseAdmin);
 
-        Store = new JButton("库存管理");
-        Store.setText("库存管理");
-        Store.setBounds(10,106,190,46);
-        Store.setFont(new Font("", Font.BOLD,24));
-        getContentPane().add(Store);
+        BookAdmin = new JButton("教材审核");
+        BookAdmin.setText("教材审核");
+        BookAdmin.setBounds(10,106,190,46);
+        BookAdmin.setFont(new Font("", Font.BOLD,24));
+        getContentPane().add(BookAdmin);
 
-        Deliver = new JButton("出库管理");
-        Deliver.setText("出库管理");
-        Deliver.setBounds(10,164,190,46);
-        Deliver.setFont(new Font("", Font.BOLD,24));
-        getContentPane().add(Deliver);
+        TeacherAdmin = new JButton("教师管理");
+        TeacherAdmin.setText("教师管理");
+        TeacherAdmin.setBounds(10,164,190,46);
+        TeacherAdmin.setFont(new Font("", Font.BOLD,24));
+        getContentPane().add(TeacherAdmin);
 
-        Charge = new JButton("收费管理");
-        Charge.setText("收费管理");
-        Charge.setBounds(10,222,190,46);
-        Charge.setFont(new Font("", Font.BOLD,24));
-        getContentPane().add(Charge);
+        ClassAdmin = new JButton("班级管理");
+        ClassAdmin.setText("班级管理");
+        ClassAdmin.setBounds(10,222,190,46);
+        ClassAdmin.setFont(new Font("", Font.BOLD,24));
+        getContentPane().add(ClassAdmin);
 
-        Supplier = new JButton("供应商管理");
-        Supplier.setText("供应商管理");
-        Supplier.setBounds(10,280,190,46);
-        Supplier.setFont(new Font("", Font.BOLD,24));
-        getContentPane().add(Supplier);
-
-        Jbook = new JButton("教材科信息");
-        Jbook.setText("教材科信息");
-        Jbook.setBounds(10,338,190,46);
-        Jbook.setFont(new Font("", Font.BOLD,24));
-        getContentPane().add(Jbook);
+        UserAdmin = new JButton("用户管理");
+        UserAdmin.setText("用户管理");
+        UserAdmin.setBounds(10,280,190,46);
+        UserAdmin.setFont(new Font("", Font.BOLD,24));
+        getContentPane().add(UserAdmin);
 
         jButton = new JButton();
         jButton.setBorder(new TitledBorder(null,"",TitledBorder.DEFAULT_JUSTIFICATION,TitledBorder.DEFAULT_POSITION,null,null));
         jButton.setForeground(new Color(0xCA51FF));
         jButton.setFont(new Font("", Font.BOLD, 36));
-        jButton.setText("教材管理系统--当前登录为教材科");
+        jButton.setText("教材管理系统--当前登录为系部");
         jButton.setBounds(340,0,600,36);
         jButton.setBorderPainted(false);
         jButton.setFocusPainted(false);
@@ -104,66 +95,65 @@ public class JBook extends JFrame implements ActionListener {
         scrollPane.setViewportView(table);
         table.setBounds(228, 100, 1024, 750);
         getContentPane().add(table);
-        //n1 = new JLabel("教材名称");
+        //n1 = new JLabel("课程编号");
         //n1.setFont(new Font("宋体", Font.BOLD, 20));
-        //n1.setBounds(228, 48, 190, 50);
+        //n1.setBounds(228, 48, 202, 50);
         //getContentPane().add(n1);
-        //n2 = new JLabel("教材单价");
+        //n2 = new JLabel("课程名称");
         //n2.setFont(new Font("宋体", Font.BOLD, 20));
-        //n2.setBounds(400, 48, 190, 50);
+        //n2.setBounds(430, 48, 202, 50);
         //getContentPane().add(n2);
-        //n3 = new JLabel("订购数量");
+        //n3 = new JLabel("授课老师");
         //n3.setFont(new Font("宋体", Font.BOLD, 20));
-        //n3.setBounds(590, 48, 190, 50);
+        //n3.setBounds(632, 48, 202, 50);
         //getContentPane().add(n3);
-        //n4 = new JLabel("总计");
+
+        //n1 = new JLabel("课程名称");
+        //n1.setFont(new Font("宋体", Font.BOLD, 20));
+        //n1.setBounds(228, 48, 202, 50);
+        //getContentPane().add(n1);
+        //n2 = new JLabel("授课老师");
+        //n2.setFont(new Font("宋体", Font.BOLD, 20));
+        //n2.setBounds(430, 48, 202, 50);
+        //getContentPane().add(n2);
+        //n3 = new JLabel("推荐教材");
+        //n3.setFont(new Font("宋体", Font.BOLD, 20));
+        //n3.setBounds(632, 48, 202, 50);
+        //getContentPane().add(n3);
+        //n4 = new JLabel("是否通过");
         //n4.setFont(new Font("宋体", Font.BOLD, 20));
-        //n4.setBounds(780, 48, 190, 50);
+        //n4.setBounds(834, 48, 202, 50);
         //getContentPane().add(n4);
 
-        //n1 = new JLabel("教材编号");
+        //n1 = new JLabel("教师编号");
         //n1.setFont(new Font("宋体", Font.BOLD, 20));
         //n1.setBounds(228, 48, 202, 50);
         //getContentPane().add(n1);
-        //n2 = new JLabel("教材名称");
+        //n2 = new JLabel("教师名称");
         //n2.setFont(new Font("宋体", Font.BOLD, 20));
         //n2.setBounds(430, 48, 202, 50);
         //getContentPane().add(n2);
-        //n3 = new JLabel("总数");
+        //n3 = new JLabel("所教课程");
         //n3.setFont(new Font("宋体", Font.BOLD, 20));
         //n3.setBounds(632, 48, 202, 50);
         //getContentPane().add(n3);
 
-        //n1 = new JLabel("教材名称");
-        //n1.setFont(new Font("宋体", Font.BOLD, 20));
-        //n1.setBounds(228, 48, 202, 50);
-        //getContentPane().add(n1);
-        //n2 = new JLabel("可否领取");
-        //n2.setFont(new Font("宋体", Font.BOLD, 20));
-        //n2.setBounds(430, 48, 202, 50);
-        //getContentPane().add(n2);
-
-        //n1 = new JLabel("教材名称");
-        //n1.setFont(new Font("宋体", Font.BOLD, 20));
-        //n1.setBounds(228, 48, 202, 50);
-        //getContentPane().add(n1);
-        //n2 = new JLabel("班级名称");
-        //n2.setFont(new Font("宋体", Font.BOLD, 20));
-        //n2.setBounds(430, 48, 202, 50);
-        //getContentPane().add(n2);
-        //n3 = new JLabel("是否已付");
-        //n3.setFont(new Font("宋体", Font.BOLD, 20));
-        //n3.setBounds(632, 48, 202, 50);
-        //getContentPane().add(n3);
-
-        //n1 = new JLabel("教材名称");
-        //n1.setFont(new Font("宋体", Font.BOLD, 20));
-        //n1.setBounds(228, 48, 202, 50);
-        //getContentPane().add(n1);
-        //n2 = new JLabel("供应商名称");
-        //n2.setFont(new Font("宋体", Font.BOLD, 20));
-        //n2.setBounds(430, 48, 202, 50);
-        //getContentPane().add(n2);
+        n1 = new JLabel("班级编号");
+        n1.setFont(new Font("宋体", Font.BOLD, 20));
+        n1.setBounds(228, 48, 202, 50);
+        getContentPane().add(n1);
+        n2 = new JLabel("所属系部");
+        n2.setFont(new Font("宋体", Font.BOLD, 20));
+        n2.setBounds(430, 48, 202, 50);
+        getContentPane().add(n2);
+        n3 = new JLabel("班级名称");
+        n3.setFont(new Font("宋体", Font.BOLD, 20));
+        n3.setBounds(632, 48, 202, 50);
+        getContentPane().add(n3);
+        n4 = new JLabel("班级人数");
+        n4.setFont(new Font("宋体", Font.BOLD, 20));
+        n4.setBounds(834, 48, 202, 50);
+        getContentPane().add(n4);
 
         setVisible(true);
     }

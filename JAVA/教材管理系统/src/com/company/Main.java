@@ -1,12 +1,11 @@
 package com.company;
 
-import View.JBook;
-import View.Login;
+import View.*;
 
 public class Main {
 
     public static void main(String[] args) {
 	// write your code here
-        new Login();
+        new TBook("1");
     }
 }
