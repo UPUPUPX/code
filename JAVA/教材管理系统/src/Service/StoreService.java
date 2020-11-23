@@ -10,7 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class StoreService {
-    public STORE FindStore(String str) throws SQLException {
+    public static STORE FindStore(String str) throws SQLException {
         String sql = "select * from STORE where name=?";
         Connection conn = DBUtil.getConn();
         PreparedStatement ps = conn.prepareStatement(sql);
@@ -29,6 +29,27 @@ public class StoreService {
             return null;
         }
     }
+
+    public static STORE FindStore(int id) throws SQLException {
+        String sql = "select * from STORE where ID=?";
+        Connection conn = DBUtil.getConn();
+        PreparedStatement ps = conn.prepareStatement(sql);
+        ps.setInt(1,id);
+        ResultSet rs = ps.executeQuery();
+        if(rs.next()){
+            STORE store = new STORE();
+            store.setID(rs.getInt("ID"));
+            store.setName(rs.getString("name"));
+            store.setFlag(rs.getInt("flag"));
+            store.setTotal(rs.getInt("total"));
+            conn.close();
+            return store;
+        }else{
+            conn.close();
+            return null;
+        }
+    }
+
     public void Insert(STORE store) throws SQLException{
         String sql = "insert into `STORE`(`name`,`flag`,`total`)"+"VALUES (?,?,?)";
         STORE store1 = FindStore(store.getName());
@@ -70,5 +91,24 @@ public class StoreService {
         else{
             JOptionPane.showMessageDialog(null,"该数据1不存在");
         }
+    }
+
+    public int getCount() {
+        int count = -1;
+        String sql = "select count(*) from `STORE`";
+        try {
+            Connection conn=DBUtil.getConn();
+            if (conn!=null) {
+                PreparedStatement ps=conn.prepareStatement(sql);
+                ResultSet rs=ps.executeQuery();
+                if(rs.next()) {
+                    count=rs.getInt(1);
+                }
+            }
+            conn.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return count;
     }
 }

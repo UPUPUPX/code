@@ -10,8 +10,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class ChargeService {
-    public CHARGE FindCharge(String str) throws SQLException {
-        String sql = "select * from CHARGE where BName=?";
+    public static CHARGE FindCharge(String str) throws SQLException {
+        String sql = "select * from CHARGE where CName=?";
         Connection conn = DBUtil.getConn();
         PreparedStatement ps = conn.prepareStatement(sql);
         ps.setString(1,str);
@@ -29,6 +29,48 @@ public class ChargeService {
             return null;
         }
     }
+
+    public static CHARGE FindCharge(int id) throws SQLException {
+        String sql = "select * from CHARGE where ID=?";
+        Connection conn = DBUtil.getConn();
+        PreparedStatement ps = conn.prepareStatement(sql);
+        ps.setInt(1,id);
+        ResultSet rs = ps.executeQuery();
+        if(rs.next()){
+            CHARGE charge = new CHARGE();
+            charge.setID(rs.getInt("ID"));
+            charge.setBName(rs.getString("BName"));
+            charge.setCName(rs.getString("CName"));
+            charge.setFlag(rs.getInt("flag"));
+            conn.close();
+            return charge;
+        }else{
+            conn.close();
+            return null;
+        }
+    }
+
+    public static CHARGE FindCharge(String str,int id) throws SQLException {
+        String sql = "select * from CHARGE where CName=? and ID=?";
+        Connection conn = DBUtil.getConn();
+        PreparedStatement ps = conn.prepareStatement(sql);
+        ps.setString(1,str);
+        ps.setInt(2,id);
+        ResultSet rs = ps.executeQuery();
+        if(rs.next()){
+            CHARGE charge = new CHARGE();
+            charge.setID(rs.getInt("ID"));
+            charge.setBName(rs.getString("BName"));
+            charge.setCName(rs.getString("CName"));
+            charge.setFlag(rs.getInt("flag"));
+            conn.close();
+            return charge;
+        }else{
+            conn.close();
+            return null;
+        }
+    }
+
     public void Insert(CHARGE charge) throws SQLException{
         String sql = "insert into `CHARGE`(`BName`,`CName`,`flag`)"+"VALUES (?,?,?)";
         CHARGE charge1 = FindCharge(charge.getBName());
@@ -71,4 +113,23 @@ public class ChargeService {
             JOptionPane.showMessageDialog(null,"该数据不存在");
         }
     }
+
+    public int getCount() {
+        int count = -1;
+        String sql = "select count(*) from `CHARGE`";
+        try {
+            Connection conn=DBUtil.getConn();
+            if (conn!=null) {
+                PreparedStatement ps=conn.prepareStatement(sql);
+                ResultSet rs=ps.executeQuery();
+                if(rs.next()) {
+                    count=rs.getInt(1);
+                }
+            }else{}
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return count;
+    }
+
 }

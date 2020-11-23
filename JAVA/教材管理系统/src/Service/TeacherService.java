@@ -11,8 +11,71 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class TeacherService {
-    public TEACHER FindTeacher(String str) throws SQLException {
+    public static TEACHER FindTeacher(String str) throws SQLException {
         String sql = "select * from TEACHER where TName=?";
+        Connection conn = DBUtil.getConn();
+        PreparedStatement ps = conn.prepareStatement(sql);
+        ps.setString(1,str);
+        ResultSet rs = ps.executeQuery();
+        if(rs.next()){
+            TEACHER teacher = new TEACHER();
+            teacher.setID(rs.getInt("ID"));
+            teacher.setTName(rs.getString("TName"));
+            teacher.setCourseName(rs.getString("CourseName"));
+            teacher.setBName(rs.getString("BName"));
+            teacher.setFlag(rs.getInt("flag"));
+            conn.close();
+            return teacher;
+        }else{
+            conn.close();
+            return null;
+        }
+    }
+
+    public static TEACHER FindTeacherByCourse(String str) throws SQLException {
+        String sql = "select * from TEACHER where CourseName=?";
+        Connection conn = DBUtil.getConn();
+        PreparedStatement ps = conn.prepareStatement(sql);
+        ps.setString(1,str);
+        ResultSet rs = ps.executeQuery();
+        if(rs.next()){
+            TEACHER teacher = new TEACHER();
+            teacher.setID(rs.getInt("ID"));
+            teacher.setTName(rs.getString("TName"));
+            teacher.setCourseName(rs.getString("CourseName"));
+            teacher.setBName(rs.getString("BName"));
+            teacher.setFlag(rs.getInt("flag"));
+            conn.close();
+            return teacher;
+        }else{
+            conn.close();
+            return null;
+        }
+    }
+
+    public static TEACHER FindTeacher(int id) throws SQLException {
+        String sql = "select * from TEACHER where ID=?";
+        Connection conn = DBUtil.getConn();
+        PreparedStatement ps = conn.prepareStatement(sql);
+        ps.setInt(1,id);
+        ResultSet rs = ps.executeQuery();
+        if(rs.next()){
+            TEACHER teacher = new TEACHER();
+            teacher.setID(rs.getInt("ID"));
+            teacher.setTName(rs.getString("TName"));
+            teacher.setCourseName(rs.getString("CourseName"));
+            teacher.setBName(rs.getString("BName"));
+            teacher.setFlag(rs.getInt("flag"));
+            conn.close();
+            return teacher;
+        }else{
+            conn.close();
+            return null;
+        }
+    }
+
+    public static TEACHER FindTeacherB(String str) throws SQLException {
+        String sql = "select * from TEACHER where TName=? and flag=0";
         Connection conn = DBUtil.getConn();
         PreparedStatement ps = conn.prepareStatement(sql);
         ps.setString(1,str);
@@ -74,5 +137,22 @@ public class TeacherService {
         else{
             JOptionPane.showMessageDialog(null,"该数据不存在");
         }
+    }
+    public static int getCount() {
+        int count = -1;
+        String sql = "select count(*) from `TEACHER`";
+        try {
+            Connection conn=DBUtil.getConn();
+            if (conn!=null) {
+                PreparedStatement ps=conn.prepareStatement(sql);
+                ResultSet rs=ps.executeQuery();
+                if(rs.next()) {
+                    count=rs.getInt(1);
+                }
+            }else{}
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return count;
     }
 }

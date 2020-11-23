@@ -7,6 +7,7 @@ public class BOOK {
     private String author;
     private int price;
     private String supplier;
+    private int bnum;
 
     public int getID() {
         return ID;
@@ -14,6 +15,14 @@ public class BOOK {
 
     public void setID(int ID) {
         this.ID = ID;
+    }
+
+    public int getBnum() {
+        return bnum;
+    }
+
+    public void setBnum(int bnum) {
+        this.bnum = bnum;
     }
 
     public String getName() {

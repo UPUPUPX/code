@@ -30,6 +30,28 @@ public class UserService {
             return null;
         }
     }
+
+    public static USER FindUser(int id) throws SQLException{
+        String sql = "select * from USER where ID=?";
+        Connection conn = DBUtil.getConn();
+        PreparedStatement ps = conn.prepareStatement(sql);
+        ps.setInt(1,id);
+        ResultSet rs = ps.executeQuery();
+        if(rs.next()){
+            USER user = new USER();
+            user.setID(rs.getInt("ID"));
+            user.setSHENFEN(rs.getString("SHENFEN"));
+            user.setUSERNAME(rs.getString("USERNAME"));
+            user.setUSERPASS(rs.getString("USERPASS"));
+            user.setSTATE(rs.getInt("STATE"));
+            conn.close();
+            return user;
+        }else{
+            conn.close();
+            return null;
+        }
+    }
+
     public void Insert(USER user) throws SQLException{
         String sql = "insert into `USER`(`USERNAME`,`USERPASS`,`STATE`,`SHENFEN`)"+"VALUES (?,?,?,?)";
         USER user01 = FindUser(user.getUSERNAME());

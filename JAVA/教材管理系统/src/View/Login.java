@@ -23,9 +23,6 @@ public class Login extends JFrame implements ActionListener {
     JTextField name;
     JPasswordField word;
     JComboBox jComboBox;
-    public String getPassWord(){
-        return String.valueOf(word.getPassword());
-    }
     public Login(){
         username = new JLabel("账号");
         username.setBounds( 100, 166, 120,30);
@@ -51,6 +48,7 @@ public class Login extends JFrame implements ActionListener {
         shenfen.setBounds(100,118,120,30 );
         shenfen.setFont(new Font("",Font.BOLD,24));
         getContentPane().add(shenfen);
+
         jComboBox = new JComboBox(new LoginList());
         jComboBox.setBounds(178,118,240,30);
         getContentPane().add(jComboBox);
@@ -117,7 +115,8 @@ public class Login extends JFrame implements ActionListener {
                         if(sh == "系部")new XBook();
                         else if(sh == "教材科")new JBook();
                         else if(sh == "教师")new TBook(name.getText());
-                        else if(sh == "班级")new CBook();
+                        else if(sh == "班级")new CBook(name.getText());
+                        else if(sh == "管理员")new Admin();
                     } else {
                         JOptionPane.showMessageDialog(null, "用户名或密码错误");
                     }

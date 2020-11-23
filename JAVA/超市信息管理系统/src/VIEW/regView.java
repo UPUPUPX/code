@@ -135,4 +135,8 @@ public class regView extends JFrame implements ActionListener {
             }
         }
     }
+
+    public static void main(String[] args) {
+         new regView(1);
+    }
 }

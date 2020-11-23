@@ -10,7 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class ClassService {
-    public CLASS FindClass(String str) throws SQLException {
+    public static CLASS FindClass(String str) throws SQLException {
         String sql = "select * from CLASS where ClassName=?";
         Connection conn = DBUtil.getConn();
         PreparedStatement ps = conn.prepareStatement(sql);
@@ -30,6 +30,28 @@ public class ClassService {
             return null;
         }
     }
+
+    public static CLASS FindClass(int id) throws SQLException {
+        String sql = "select * from CLASS where ID=?";
+        Connection conn = DBUtil.getConn();
+        PreparedStatement ps = conn.prepareStatement(sql);
+        ps.setInt(1,id);
+        ResultSet rs = ps.executeQuery();
+        if(rs.next()){
+            CLASS aClass = new CLASS();
+            aClass.setID(rs.getInt("ID"));
+            aClass.setXName(rs.getString("XName"));
+            aClass.setClassName(rs.getString("ClassName"));
+            aClass.setNum(rs.getInt("num"));
+            aClass.setBnum(rs.getInt("bnum"));
+            conn.close();
+            return aClass;
+        }else{
+            conn.close();
+            return null;
+        }
+    }
+
     public void Insert(CLASS aClass) throws SQLException{
         String sql = "insert into `CLASS`(`XName`,`ClassName`,`num`,`bnum`)"+"VALUES (?,?,?,?)";
         CLASS aClass1 = FindClass(aClass.getClassName());
@@ -74,4 +96,23 @@ public class ClassService {
             JOptionPane.showMessageDialog(null,"该班级不存在");
         }
     }
+
+    public int getCount() {
+        int count = -1;
+        String sql = "select count(*) from `CLASS`";
+        try {
+            Connection conn=DBUtil.getConn();
+            if (conn!=null) {
+                PreparedStatement ps=conn.prepareStatement(sql);
+                ResultSet rs=ps.executeQuery();
+                if(rs.next()) {
+                    count=rs.getInt(1);
+                }
+            }else{}
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return count;
+    }
+
 }

@@ -25,7 +25,7 @@ public class printl {
         FileWriter fw = new FileWriter(file, true);
         BufferedWriter bw = new BufferedWriter(fw);
         bw.write("#######欢迎光临#######"+System.getProperty( "line.separator" ));
-
+        bw.write("以下是您详细购物清单"+System.getProperty( "line.separator" ));
         for (int i=0; i<list.size(); i++) {
             shopList shopList=list.get(i);
             bw.write("商品:"+shopList.getName()+shopList.getCount()+"个(件)"+"单价:"+shopList.getPrice()+"元"+System.getProperty( "line.separator" ));
