@@ -1,0 +1,1 @@
+/usr/bin/c++.exe -g  -Wl,--enable-auto-import CMakeFiles/data.dir/main.cpp.o  -o data.exe -Wl,--out-implib,libdata.dll.a -Wl,--major-image-version,0,--minor-image-version,0 

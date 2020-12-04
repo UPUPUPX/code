@@ -174,6 +174,7 @@ public class userOperateView extends JFrame implements ActionListener,TableModel
             setS(mon);
         }
         else if (e.getSource()==add){
+            if (shopList!=null){
             String[] rowValues = {String.valueOf(shopList.getId()),String.valueOf(shopList.getName()),counts.getText(),String.valueOf(shopList.getPrice())};
             tableModel.addRow(rowValues);
             Calendar calendar = Calendar.getInstance();
@@ -184,6 +185,9 @@ public class userOperateView extends JFrame implements ActionListener,TableModel
             double mon=Double.parseDouble(jTextFieldtotal.getText())+Double.parseDouble(String.valueOf(shopList.getCount()*shopList.getPrice()));
             jTextFieldtotal.setText(String.valueOf(mon));
             setS(mon);
+            }else{
+                JOptionPane.showMessageDialog(null, "商品不存在");
+            }
         }
         else if (e.getSource()==addgoods){
             new addGoods();
