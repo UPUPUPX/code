@@ -50,7 +50,7 @@ public class adminOperateView extends JFrame implements ActionListener {
         bill.setBackground(heavygreen);
         bill.setFont(new Font("", Font.BOLD, 40));
         bill.setForeground(heavywrite);
-        salary=new JButton("工资管理");
+        salary=new JButton("进货管理");
         salary.setFocusPainted(false);
         salary.setBorderPainted(false);
         salary.setBackground(heavygreen);
@@ -107,5 +107,8 @@ public class adminOperateView extends JFrame implements ActionListener {
         if (e.getSource()==state){
             JOptionPane.showMessageDialog(null, "新功能正在开发当中");
         }
+    }
+    public static void main(String[] args) {
+        new adminOperateView();
     }
 }
