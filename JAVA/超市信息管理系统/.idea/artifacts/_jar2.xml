@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact name="超市信息管理系统:jar2">
+    <output-path>$PROJECT_DIR$/out/artifacts/_jar2</output-path>
+    <root id="root">
+      <element id="archive" name="超市信息管理系统.jar">
+        <element id="module-output" name="超市信息管理系统" />
+      </element>
+      <element id="library" level="project" name="commons-pool-1.6" />
+      <element id="library" level="project" name="lib" />
+      <element id="library" level="application" name="Java EE 6-Java EE 6" />
+    </root>
+  </artifact>
+</component>

@@ -1,0 +1,1 @@
+/usr/bin/c++.exe -g  -Wl,--enable-auto-import CMakeFiles/matlab.dir/main.cpp.o  -o matlab.exe -Wl,--out-implib,libmatlab.dll.a -Wl,--major-image-version,0,--minor-image-version,0 

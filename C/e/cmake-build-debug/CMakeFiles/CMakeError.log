@@ -1,0 +1,15 @@
+Determining if the C compiler works failed with the following output:
+Change Dir: /cygdrive/d/CODE/C/e/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make.exe cmTC_bb03b/fast && /usr/bin/make  -f CMakeFiles/cmTC_bb03b.dir/build.make CMakeFiles/cmTC_bb03b.dir/build
+make[1]: Entering directory '/cygdrive/d/CODE/C/e/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_bb03b.dir/testCCompiler.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_bb03b.dir/testCCompiler.c.o   -c /cygdrive/d/CODE/C/e/cmake-build-debug/CMakeFiles/CMakeTmp/testCCompiler.c
+Assembler messages:
+Fatal error: can't create CMakeFiles/cmTC_bb03b.dir/testCCompiler.c.o: No such file or directory
+make[1]: *** [CMakeFiles/cmTC_bb03b.dir/build.make:86: CMakeFiles/cmTC_bb03b.dir/testCCompiler.c.o] Error 1
+make[1]: Leaving directory '/cygdrive/d/CODE/C/e/cmake-build-debug/CMakeFiles/CMakeTmp'
+make: *** [Makefile:141: cmTC_bb03b/fast] Error 2
+
+
+

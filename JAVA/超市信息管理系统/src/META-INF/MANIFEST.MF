@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Main-Class: VIEW.START
+Class-Path: commons-pool-1.6.jar sqlite-jdbc-3.7.2.jar commons-logging-1
+ .2.jar commons-dbutils-1.6.jar commons-dbcp-1.4.jar commons-collections
+ -3.2.1.jar javax.ejb.jar javax.jms.jar javax.mail.jar javax.servlet.jar
+  javax.resource.jar commons-dbcp-1.4.jar commons-pool-1.6.jar javax.ann
+ otation.jar javax.persistence.jar javax.servlet.jsp.jar javax.transacti
+ on.jar sqlite-jdbc-3.7.2.jar commons-dbutils-1.6.jar commons-logging-1.
+ 2.jar javax.servlet.jsp.jstl.jar commons-collections-3.2.1.jar javax.an
+ notation.jar javax.persistence.jar javax.transaction.jar javax.servlet.
+ jsp.jar javax.servlet.jar javax.servlet.jsp.jstl.jar javax.resource.jar
+  javax.jms.jar javax.ejb.jar
+

@@ -1,0 +1,1 @@
+/usr/bin/c++.exe -g  -Wl,--enable-auto-import CMakeFiles/LQB.dir/main.cpp.o  -o LQB.exe -Wl,--out-implib,libLQB.dll.a -Wl,--major-image-version,0,--minor-image-version,0 

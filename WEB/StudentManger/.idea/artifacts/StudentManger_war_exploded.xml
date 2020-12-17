@@ -1,0 +1,19 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="StudentManger:war exploded">
+    <output-path>$PROJECT_DIR$/classes/artifacts/StudentManger_war_exploded</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="StudentManger" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="module" name="c3p0-0.9.5.5.jar" module-name="StudentManger" />
+          <element id="library" level="module" name="commons-dbutils-1.7.jar" module-name="StudentManger" />
+          <element id="library" level="module" name="mchange-commons-java-0.2.19.jar" module-name="StudentManger" />
+          <element id="library" level="module" name="mysql-connector-java-5.1.26-bin.jar" module-name="StudentManger" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="StudentManger/web/Web" />
+    </root>
+  </artifact>
+</component>

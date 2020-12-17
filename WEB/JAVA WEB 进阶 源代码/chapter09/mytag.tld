@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="GBK" ?>
+<!-- 自定义标签的根标签是<taglib>，根标签使用的是schema约束，根标签的属性及其取值，
+通常是固定不变的-->
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee 
+	http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+	version="2.0"> 
+	<!--  TLD的头文件，这部分信息通常是固定不变的  -->
+	<!-- 指定标签库的版本号  -->
+	<tlib-version>1.0</tlib-version>
+	<!-- 指定标签库的名称 -->
+	<short-name>SimpleTag</short-name>
+	<!-- 指定标签库的URI --> 
+	<uri>http://www.itcast.cn</uri>
+	<!-- 注册一个自定义的标签 -->
+	<tag>
+	    <!-- 指定自定义标签的注册名称 -->
+		<name>ipTag</name>
+		<!-- 指定标签的标签处理器类 -->
+		<tag-class>cn.itcast.chapter09.tag.IpTag</tag-class>
+		<!-- 指定标签体的类型,empty表示标签体为空 -->
+		<body-content>empty</body-content>
+	</tag>
+</taglib>

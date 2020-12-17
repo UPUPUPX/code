@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e6a2ef0d-9727-4406-97da-25e816524f68" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../1.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Javaweb/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Javaweb/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Javaweb/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Javaweb/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Javaweb/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Javaweb/Javaweb.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Javaweb/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cookie/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cookie/.idea/artifacts/cookie_war_exploded.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cookie/.idea/description.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cookie/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cookie/.idea/libraries/servlet_api.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cookie/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cookie/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cookie/.idea/project-template.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cookie/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cookie/cookie.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cookie/out/artifacts/cookie_war_exploded/WEB-INF/classes/cn/itcast/chapter06/cookie/example/LastAccessServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cookie/out/artifacts/cookie_war_exploded/WEB-INF/classes/com/company/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cookie/out/artifacts/cookie_war_exploded/WEB-INF/web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cookie/out/artifacts/cookie_war_exploded/index.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cookie/src/cn/itcast/chapter06/cookie/example/LastAccessServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cookie/src/com/company/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cookie/web/WEB-INF/classes/cn/itcast/chapter06/cookie/example/LastAccessServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cookie/web/WEB-INF/classes/com/company/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cookie/web/WEB-INF/web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cookie/web/index.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/demo.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../javaTest/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../javaTest/.idea/artifacts/javaTest_war_exploded.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../javaTest/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../javaTest/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../javaTest/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../javaTest/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../javaTest/javaTest.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../javaTest/out/production/javaTest/java/TestServlet02.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../javaTest/src/java/TestServlet02.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../javaTest/web/WEB-INF/web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../javaTest/web/index.jsp" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="1llqluZ9UQ0krwm2V8XYF5cLCdR" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\CODE\WEB\TEST" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e6a2ef0d-9727-4406-97da-25e816524f68" name="Default Changelist" comment="" />
+      <created>1608182181032</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1608182181032</updated>
+      <workItem from="1608182182501" duration="41000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

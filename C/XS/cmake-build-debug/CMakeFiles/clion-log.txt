@@ -1,0 +1,312 @@
+D:\Data\Jetbrains\CLION\.CLion\system\cygwin_cmake\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /cygdrive/d/CODE/C/XS
+CMake Error at /cygdrive/d/Data/Jetbrains/CLION/.CLion/system/cygwin_cmake/share/cmake-3.17.3/Modules/CMakeDetermineSystem.cmake:173 (file):
+  file failed to open for writing (No such file or directory):
+
+    /cygdrive/d/CODE/C/XS/cmake-build-debug/CMakeFiles/CMakeOutput.log
+Call Stack (most recent call first):
+  CMakeLists.txt:2 (project)
+
+
+CMake Error: Could not open file for write in copy operation /cygdrive/d/CODE/C/XS/cmake-build-debug/CMakeFiles/3.17.3/CMakeSystem.cmake.tmp
+CMake Error: : System Error: No such file or directory
+CMake Error at /cygdrive/d/Data/Jetbrains/CLION/.CLion/system/cygwin_cmake/share/cmake-3.17.3/Modules/CMakeDetermineSystem.cmake:185 (configure_file):
+  configure_file Problem configuring file
+Call Stack (most recent call first):
+  CMakeLists.txt:2 (project)
+
+
+CMake Error at /cygdrive/d/Data/Jetbrains/CLION/.CLion/system/cygwin_cmake/share/cmake-3.17.3/Modules/CMakeDetermineCompilerId.cmake:232 (file):
+  file problem creating directory:
+  /cygdrive/d/CODE/C/XS/cmake-build-debug/CMakeFiles/3.17.3/CompilerIdC
+Call Stack (most recent call first):
+  /cygdrive/d/Data/Jetbrains/CLION/.CLion/system/cygwin_cmake/share/cmake-3.17.3/Modules/CMakeDetermineCompilerId.cmake:32 (CMAKE_DETERMINE_COMPILER_ID_BUILD)
+  /cygdrive/d/Data/Jetbrains/CLION/.CLion/system/cygwin_cmake/share/cmake-3.17.3/Modules/CMakeDetermineCCompiler.cmake:116 (CMAKE_DETERMINE_COMPILER_ID)
+  CMakeLists.txt:2 (project)
+
+
+CMake Error at /cygdrive/d/Data/Jetbrains/CLION/.CLion/system/cygwin_cmake/share/cmake-3.17.3/Modules/CMakeDetermineCompilerId.cmake:232 (file):
+  file problem creating directory:
+  /cygdrive/d/CODE/C/XS/cmake-build-debug/CMakeFiles/3.17.3/CompilerIdC
+Call Stack (most recent call first):
+  /cygdrive/d/Data/Jetbrains/CLION/.CLion/system/cygwin_cmake/share/cmake-3.17.3/Modules/CMakeDetermineCompilerId.cmake:32 (CMAKE_DETERMINE_COMPILER_ID_BUILD)
+  /cygdrive/d/Data/Jetbrains/CLION/.CLion/system/cygwin_cmake/share/cmake-3.17.3/Modules/CMakeDetermineCCompiler.cmake:116 (CMAKE_DETERMINE_COMPILER_ID)
+  CMakeLists.txt:2 (project)
+
+
+CMake Error at /cygdrive/d/Data/Jetbrains/CLION/.CLion/system/cygwin_cmake/share/cmake-3.17.3/Modules/CMakeDetermineCompilerId.cmake:232 (file):
+  file problem creating directory:
+  /cygdrive/d/CODE/C/XS/cmake-build-debug/CMakeFiles/3.17.3/CompilerIdC
+Call Stack (most recent call first):
+  /cygdrive/d/Data/Jetbrains/CLION/.CLion/system/cygwin_cmake/share/cmake-3.17.3/Modules/CMakeDetermineCompilerId.cmake:32 (CMAKE_DETERMINE_COMPILER_ID_BUILD)
+  /cygdrive/d/Data/Jetbrains/CLION/.CLion/system/cygwin_cmake/share/cmake-3.17.3/Modules/CMakeDetermineCCompiler.cmake:116 (CMAKE_DETERMINE_COMPILER_ID)
+  CMakeLists.txt:2 (project)
+
+
+CMake Error at /cygdrive/d/Data/Jetbrains/CLION/.CLion/system/cygwin_cmake/share/cmake-3.17.3/Modules/CMakeDetermineCompilerId.cmake:232 (file):
+  file problem creating directory:
+  /cygdrive/d/CODE/C/XS/cmake-build-debug/CMakeFiles/3.17.3/CompilerIdC
+Call Stack (most recent call first):
+  /cygdrive/d/Data/Jetbrains/CLION/.CLion/system/cygwin_cmake/share/cmake-3.17.3/Modules/CMakeDetermineCompilerId.cmake:32 (CMAKE_DETERMINE_COMPILER_ID_BUILD)
+  /cygdrive/d/Data/Jetbrains/CLION/.CLion/system/cygwin_cmake/share/cmake-3.17.3/Modules/CMakeDetermineCCompiler.cmake:116 (CMAKE_DETERMINE_COMPILER_ID)
+  CMakeLists.txt:2 (project)
+
+
+CMake Error at /cygdrive/d/Data/Jetbrains/CLION/.CLion/system/cygwin_cmake/share/cmake-3.17.3/Modules/CMakeDetermineCompilerId.cmake:232 (file):
+  file problem creating directory:
+  /cygdrive/d/CODE/C/XS/cmake-build-debug/CMakeFiles/3.17.3/CompilerIdC
+Call Stack (most recent call first):
+  /cygdrive/d/Data/Jetbrains/CLION/.CLion/system/cygwin_cmake/share/cmake-3.17.3/Modules/CMakeDetermineCompilerId.cmake:32 (CMAKE_DETERMINE_COMPILER_ID_BUILD)
+  /cygdrive/d/Data/Jetbrains/CLION/.CLion/system/cygwin_cmake/share/cmake-3.17.3/Modules/CMakeDetermineCCompiler.cmake:116 (CMAKE_DETERMINE_COMPILER_ID)
+  CMakeLists.txt:2 (project)
+
+
+CMake Error at /cygdrive/d/Data/Jetbrains/CLION/.CLion/system/cygwin_cmake/share/cmake-3.17.3/Modules/CMakeDetermineCompilerId.cmake:232 (file):
+  file problem creating directory:
+  /cygdrive/d/CODE/C/XS/cmake-build-debug/CMakeFiles/3.17.3/CompilerIdC
+Call Stack (most recent call first):
+  /cygdrive/d/Data/Jetbrains/CLION/.CLion/system/cygwin_cmake/share/cmake-3.17.3/Modules/CMakeDetermineCompilerId.cmake:32 (CMAKE_DETERMINE_COMPILER_ID_BUILD)
+  /cygdrive/d/Data/Jetbrains/CLION/.CLion/system/cygwin_cmake/share/cmake-3.17.3/Modules/CMakeDetermineCCompiler.cmake:116 (CMAKE_DETERMINE_COMPILER_ID)
+  CMakeLists.txt:2 (project)
+
+
+CMake Error at /cygdrive/d/Data/Jetbrains/CLION/.CLion/system/cygwin_cmake/share/cmake-3.17.3/Modules/CMakeDetermineCompilerId.cmake:232 (file):
+  file problem creating directory:
+  /cygdrive/d/CODE/C/XS/cmake-build-debug/CMakeFiles/3.17.3/CompilerIdC
+Call Stack (most recent call first):
+  /cygdrive/d/Data/Jetbrains/CLION/.CLion/system/cygwin_cmake/share/cmake-3.17.3/Modules/CMakeDetermineCompilerId.cmake:32 (CMAKE_DETERMINE_COMPILER_ID_BUILD)
+  /cygdrive/d/Data/Jetbrains/CLION/.CLion/system/cygwin_cmake/share/cmake-3.17.3/Modules/CMakeDetermineCCompiler.cmake:116 (CMAKE_DETERMINE_COMPILER_ID)
+  CMakeLists.txt:2 (project)
+
+
+CMake Error at /cygdrive/d/Data/Jetbrains/CLION/.CLion/system/cygwin_cmake/share/cmake-3.17.3/Modules/CMakeDetermineCompilerId.cmake:232 (file):
+  file problem creating directory:
+  /cygdrive/d/CODE/C/XS/cmake-build-debug/CMakeFiles/3.17.3/CompilerIdC
+Call Stack (most recent call first):
+  /cygdrive/d/Data/Jetbrains/CLION/.CLion/system/cygwin_cmake/share/cmake-3.17.3/Modules/CMakeDetermineCompilerId.cmake:32 (CMAKE_DETERMINE_COMPILER_ID_BUILD)
+  /cygdrive/d/Data/Jetbrains/CLION/.CLion/system/cygwin_cmake/share/cmake-3.17.3/Modules/CMakeDetermineCCompiler.cmake:116 (CMAKE_DETERMINE_COMPILER_ID)
+  CMakeLists.txt:2 (project)
+
+
+CMake Error at /cygdrive/d/Data/Jetbrains/CLION/.CLion/system/cygwin_cmake/share/cmake-3.17.3/Modules/CMakeDetermineCompilerId.cmake:232 (file):
+  file problem creating directory:
+  /cygdrive/d/CODE/C/XS/cmake-build-debug/CMakeFiles/3.17.3/CompilerIdC
+Call Stack (most recent call first):
+  /cygdrive/d/Data/Jetbrains/CLION/.CLion/system/cygwin_cmake/share/cmake-3.17.3/Modules/CMakeDetermineCompilerId.cmake:32 (CMAKE_DETERMINE_COMPILER_ID_BUILD)
+  /cygdrive/d/Data/Jetbrains/CLION/.CLion/system/cygwin_cmake/share/cmake-3.17.3/Modules/CMakeDetermineCCompiler.cmake:116 (CMAKE_DETERMINE_COMPILER_ID)
+  CMakeLists.txt:2 (project)
+
+
+CMake Error at /cygdrive/d/Data/Jetbrains/CLION/.CLion/system/cygwin_cmake/share/cmake-3.17.3/Modules/CMakeDetermineCompilerId.cmake:232 (file):
+  file problem creating directory:
+  /cygdrive/d/CODE/C/XS/cmake-build-debug/CMakeFiles/3.17.3/CompilerIdC
+Call Stack (most recent call first):
+  /cygdrive/d/Data/Jetbrains/CLION/.CLion/system/cygwin_cmake/share/cmake-3.17.3/Modules/CMakeDetermineCompilerId.cmake:32 (CMAKE_DETERMINE_COMPILER_ID_BUILD)
+  /cygdrive/d/Data/Jetbrains/CLION/.CLion/system/cygwin_cmake/share/cmake-3.17.3/Modules/CMakeDetermineCCompiler.cmake:116 (CMAKE_DETERMINE_COMPILER_ID)
+  CMakeLists.txt:2 (project)
+
+
+CMake Error at /cygdrive/d/Data/Jetbrains/CLION/.CLion/system/cygwin_cmake/share/cmake-3.17.3/Modules/CMakeDetermineCompilerId.cmake:905 (file):
+  file failed to open for writing (No such file or directory):
+
+    /cygdrive/d/CODE/C/XS/cmake-build-debug/CMakeFiles/CMakeError.log
+Call Stack (most recent call first):
+  /cygdrive/d/Data/Jetbrains/CLION/.CLion/system/cygwin_cmake/share/cmake-3.17.3/Modules/CMakeDetermineCompilerId.cmake:60 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)
+  /cygdrive/d/Data/Jetbrains/CLION/.CLion/system/cygwin_cmake/share/cmake-3.17.3/Modules/CMakeDetermineCCompiler.cmake:116 (CMAKE_DETERMINE_COMPILER_ID)
+  CMakeLists.txt:2 (project)
+
+
+CMake Error at /cygdrive/d/Data/Jetbrains/CLION/.CLion/system/cygwin_cmake/share/cmake-3.17.3/Modules/CMakeDetermineCompilerId.cmake:905 (file):
+  file failed to open for writing (No such file or directory):
+
+    /cygdrive/d/CODE/C/XS/cmake-build-debug/CMakeFiles/CMakeError.log
+Call Stack (most recent call first):
+  /cygdrive/d/Data/Jetbrains/CLION/.CLion/system/cygwin_cmake/share/cmake-3.17.3/Modules/CMakeDetermineCompilerId.cmake:60 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)
+  /cygdrive/d/Data/Jetbrains/CLION/.CLion/system/cygwin_cmake/share/cmake-3.17.3/Modules/CMakeDetermineCCompiler.cmake:116 (CMAKE_DETERMINE_COMPILER_ID)
+  CMakeLists.txt:2 (project)
+
+
+-- The C compiler identification is unknown
+CMake Error: Could not open file for write in copy operation /cygdrive/d/CODE/C/XS/cmake-build-debug/CMakeFiles/3.17.3/CMakeCCompiler.cmake.tmp
+CMake Error: : System Error: No such file or directory
+CMake Error at /cygdrive/d/Data/Jetbrains/CLION/.CLion/system/cygwin_cmake/share/cmake-3.17.3/Modules/CMakeDetermineCCompiler.cmake:212 (configure_file):
+  configure_file Problem configuring file
+Call Stack (most recent call first):
+  CMakeLists.txt:2 (project)
+
+
+CMake Error: Could not find cmake module file: /cygdrive/d/CODE/C/XS/cmake-build-debug/CMakeFiles/3.17.3/CMakeCCompiler.cmake
+CMake Error at /cygdrive/d/Data/Jetbrains/CLION/.CLion/system/cygwin_cmake/share/cmake-3.17.3/Modules/CMakeDetermineCompilerId.cmake:232 (file):
+  file problem creating directory:
+  /cygdrive/d/CODE/C/XS/cmake-build-debug/CMakeFiles/3.17.3/CompilerIdCXX
+Call Stack (most recent call first):
+  /cygdrive/d/Data/Jetbrains/CLION/.CLion/system/cygwin_cmake/share/cmake-3.17.3/Modules/CMakeDetermineCompilerId.cmake:32 (CMAKE_DETERMINE_COMPILER_ID_BUILD)
+  /cygdrive/d/Data/Jetbrains/CLION/.CLion/system/cygwin_cmake/share/cmake-3.17.3/Modules/CMakeDetermineCXXCompiler.cmake:111 (CMAKE_DETERMINE_COMPILER_ID)
+  CMakeLists.txt:2 (project)
+
+
+CMake Error at /cygdrive/d/Data/Jetbrains/CLION/.CLion/system/cygwin_cmake/share/cmake-3.17.3/Modules/CMakeDetermineCompilerId.cmake:232 (file):
+  file problem creating directory:
+  /cygdrive/d/CODE/C/XS/cmake-build-debug/CMakeFiles/3.17.3/CompilerIdCXX
+Call Stack (most recent call first):
+  /cygdrive/d/Data/Jetbrains/CLION/.CLion/system/cygwin_cmake/share/cmake-3.17.3/Modules/CMakeDetermineCompilerId.cmake:32 (CMAKE_DETERMINE_COMPILER_ID_BUILD)
+  /cygdrive/d/Data/Jetbrains/CLION/.CLion/system/cygwin_cmake/share/cmake-3.17.3/Modules/CMakeDetermineCXXCompiler.cmake:111 (CMAKE_DETERMINE_COMPILER_ID)
+  CMakeLists.txt:2 (project)
+
+
+CMake Error at /cygdrive/d/Data/Jetbrains/CLION/.CLion/system/cygwin_cmake/share/cmake-3.17.3/Modules/CMakeDetermineCompilerId.cmake:232 (file):
+  file problem creating directory:
+  /cygdrive/d/CODE/C/XS/cmake-build-debug/CMakeFiles/3.17.3/CompilerIdCXX
+Call Stack (most recent call first):
+  /cygdrive/d/Data/Jetbrains/CLION/.CLion/system/cygwin_cmake/share/cmake-3.17.3/Modules/CMakeDetermineCompilerId.cmake:32 (CMAKE_DETERMINE_COMPILER_ID_BUILD)
+  /cygdrive/d/Data/Jetbrains/CLION/.CLion/system/cygwin_cmake/share/cmake-3.17.3/Modules/CMakeDetermineCXXCompiler.cmake:111 (CMAKE_DETERMINE_COMPILER_ID)
+  CMakeLists.txt:2 (project)
+
+
+CMake Error at /cygdrive/d/Data/Jetbrains/CLION/.CLion/system/cygwin_cmake/share/cmake-3.17.3/Modules/CMakeDetermineCompilerId.cmake:232 (file):
+  file problem creating directory:
+  /cygdrive/d/CODE/C/XS/cmake-build-debug/CMakeFiles/3.17.3/CompilerIdCXX
+Call Stack (most recent call first):
+  /cygdrive/d/Data/Jetbrains/CLION/.CLion/system/cygwin_cmake/share/cmake-3.17.3/Modules/CMakeDetermineCompilerId.cmake:32 (CMAKE_DETERMINE_COMPILER_ID_BUILD)
+  /cygdrive/d/Data/Jetbrains/CLION/.CLion/system/cygwin_cmake/share/cmake-3.17.3/Modules/CMakeDetermineCXXCompiler.cmake:111 (CMAKE_DETERMINE_COMPILER_ID)
+  CMakeLists.txt:2 (project)
+
+
+CMake Error at /cygdrive/d/Data/Jetbrains/CLION/.CLion/system/cygwin_cmake/share/cmake-3.17.3/Modules/CMakeDetermineCompilerId.cmake:232 (file):
+  file problem creating directory:
+  /cygdrive/d/CODE/C/XS/cmake-build-debug/CMakeFiles/3.17.3/CompilerIdCXX
+Call Stack (most recent call first):
+  /cygdrive/d/Data/Jetbrains/CLION/.CLion/system/cygwin_cmake/share/cmake-3.17.3/Modules/CMakeDetermineCompilerId.cmake:32 (CMAKE_DETERMINE_COMPILER_ID_BUILD)
+  /cygdrive/d/Data/Jetbrains/CLION/.CLion/system/cygwin_cmake/share/cmake-3.17.3/Modules/CMakeDetermineCXXCompiler.cmake:111 (CMAKE_DETERMINE_COMPILER_ID)
+  CMakeLists.txt:2 (project)
+
+
+CMake Error at /cygdrive/d/Data/Jetbrains/CLION/.CLion/system/cygwin_cmake/share/cmake-3.17.3/Modules/CMakeDetermineCompilerId.cmake:232 (file):
+  file problem creating directory:
+  /cygdrive/d/CODE/C/XS/cmake-build-debug/CMakeFiles/3.17.3/CompilerIdCXX
+Call Stack (most recent call first):
+  /cygdrive/d/Data/Jetbrains/CLION/.CLion/system/cygwin_cmake/share/cmake-3.17.3/Modules/CMakeDetermineCompilerId.cmake:32 (CMAKE_DETERMINE_COMPILER_ID_BUILD)
+  /cygdrive/d/Data/Jetbrains/CLION/.CLion/system/cygwin_cmake/share/cmake-3.17.3/Modules/CMakeDetermineCXXCompiler.cmake:111 (CMAKE_DETERMINE_COMPILER_ID)
+  CMakeLists.txt:2 (project)
+
+
+CMake Error at /cygdrive/d/Data/Jetbrains/CLION/.CLion/system/cygwin_cmake/share/cmake-3.17.3/Modules/CMakeDetermineCompilerId.cmake:232 (file):
+  file problem creating directory:
+  /cygdrive/d/CODE/C/XS/cmake-build-debug/CMakeFiles/3.17.3/CompilerIdCXX
+Call Stack (most recent call first):
+  /cygdrive/d/Data/Jetbrains/CLION/.CLion/system/cygwin_cmake/share/cmake-3.17.3/Modules/CMakeDetermineCompilerId.cmake:32 (CMAKE_DETERMINE_COMPILER_ID_BUILD)
+  /cygdrive/d/Data/Jetbrains/CLION/.CLion/system/cygwin_cmake/share/cmake-3.17.3/Modules/CMakeDetermineCXXCompiler.cmake:111 (CMAKE_DETERMINE_COMPILER_ID)
+  CMakeLists.txt:2 (project)
+
+
+CMake Error at /cygdrive/d/Data/Jetbrains/CLION/.CLion/system/cygwin_cmake/share/cmake-3.17.3/Modules/CMakeDetermineCompilerId.cmake:232 (file):
+  file problem creating directory:
+  /cygdrive/d/CODE/C/XS/cmake-build-debug/CMakeFiles/3.17.3/CompilerIdCXX
+Call Stack (most recent call first):
+  /cygdrive/d/Data/Jetbrains/CLION/.CLion/system/cygwin_cmake/share/cmake-3.17.3/Modules/CMakeDetermineCompilerId.cmake:32 (CMAKE_DETERMINE_COMPILER_ID_BUILD)
+  /cygdrive/d/Data/Jetbrains/CLION/.CLion/system/cygwin_cmake/share/cmake-3.17.3/Modules/CMakeDetermineCXXCompiler.cmake:111 (CMAKE_DETERMINE_COMPILER_ID)
+  CMakeLists.txt:2 (project)
+
+
+CMake Error at /cygdrive/d/Data/Jetbrains/CLION/.CLion/system/cygwin_cmake/share/cmake-3.17.3/Modules/CMakeDetermineCompilerId.cmake:232 (file):
+  file problem creating directory:
+  /cygdrive/d/CODE/C/XS/cmake-build-debug/CMakeFiles/3.17.3/CompilerIdCXX
+Call Stack (most recent call first):
+  /cygdrive/d/Data/Jetbrains/CLION/.CLion/system/cygwin_cmake/share/cmake-3.17.3/Modules/CMakeDetermineCompilerId.cmake:32 (CMAKE_DETERMINE_COMPILER_ID_BUILD)
+  /cygdrive/d/Data/Jetbrains/CLION/.CLion/system/cygwin_cmake/share/cmake-3.17.3/Modules/CMakeDetermineCXXCompiler.cmake:111 (CMAKE_DETERMINE_COMPILER_ID)
+  CMakeLists.txt:2 (project)
+
+
+CMake Error at /cygdrive/d/Data/Jetbrains/CLION/.CLion/system/cygwin_cmake/share/cmake-3.17.3/Modules/CMakeDetermineCompilerId.cmake:232 (file):
+  file problem creating directory:
+  /cygdrive/d/CODE/C/XS/cmake-build-debug/CMakeFiles/3.17.3/CompilerIdCXX
+Call Stack (most recent call first):
+  /cygdrive/d/Data/Jetbrains/CLION/.CLion/system/cygwin_cmake/share/cmake-3.17.3/Modules/CMakeDetermineCompilerId.cmake:32 (CMAKE_DETERMINE_COMPILER_ID_BUILD)
+  /cygdrive/d/Data/Jetbrains/CLION/.CLion/system/cygwin_cmake/share/cmake-3.17.3/Modules/CMakeDetermineCXXCompiler.cmake:111 (CMAKE_DETERMINE_COMPILER_ID)
+  CMakeLists.txt:2 (project)
+
+
+CMake Error at /cygdrive/d/Data/Jetbrains/CLION/.CLion/system/cygwin_cmake/share/cmake-3.17.3/Modules/CMakeDetermineCompilerId.cmake:905 (file):
+  file failed to open for writing (No such file or directory):
+
+    /cygdrive/d/CODE/C/XS/cmake-build-debug/CMakeFiles/CMakeError.log
+Call Stack (most recent call first):
+  /cygdrive/d/Data/Jetbrains/CLION/.CLion/system/cygwin_cmake/share/cmake-3.17.3/Modules/CMakeDetermineCompilerId.cmake:60 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)
+  /cygdrive/d/Data/Jetbrains/CLION/.CLion/system/cygwin_cmake/share/cmake-3.17.3/Modules/CMakeDetermineCXXCompiler.cmake:111 (CMAKE_DETERMINE_COMPILER_ID)
+  CMakeLists.txt:2 (project)
+
+
+CMake Error at /cygdrive/d/Data/Jetbrains/CLION/.CLion/system/cygwin_cmake/share/cmake-3.17.3/Modules/CMakeDetermineCompilerId.cmake:905 (file):
+  file failed to open for writing (No such file or directory):
+
+    /cygdrive/d/CODE/C/XS/cmake-build-debug/CMakeFiles/CMakeError.log
+Call Stack (most recent call first):
+  /cygdrive/d/Data/Jetbrains/CLION/.CLion/system/cygwin_cmake/share/cmake-3.17.3/Modules/CMakeDetermineCompilerId.cmake:60 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)
+  /cygdrive/d/Data/Jetbrains/CLION/.CLion/system/cygwin_cmake/share/cmake-3.17.3/Modules/CMakeDetermineCXXCompiler.cmake:111 (CMAKE_DETERMINE_COMPILER_ID)
+  CMakeLists.txt:2 (project)
+
+
+-- The CXX compiler identification is unknown
+CMake Error: Could not open file for write in copy operation /cygdrive/d/CODE/C/XS/cmake-build-debug/CMakeFiles/3.17.3/CMakeCXXCompiler.cmake.tmp
+CMake Error: : System Error: No such file or directory
+CMake Error at /cygdrive/d/Data/Jetbrains/CLION/.CLion/system/cygwin_cmake/share/cmake-3.17.3/Modules/CMakeDetermineCXXCompiler.cmake:210 (configure_file):
+  configure_file Problem configuring file
+Call Stack (most recent call first):
+  CMakeLists.txt:2 (project)
+
+
+CMake Error: Could not find cmake module file: /cygdrive/d/CODE/C/XS/cmake-build-debug/CMakeFiles/3.17.3/CMakeCXXCompiler.cmake
+-- Check for working C compiler: /usr/bin/cc
+CMake Error at /cygdrive/d/Data/Jetbrains/CLION/.CLion/system/cygwin_cmake/share/cmake-3.17.3/Modules/CMakeTestCCompiler.cmake:32 (file):
+  file failed to open for writing (No such file or directory):
+
+    /cygdrive/d/CODE/C/XS/cmake-build-debug/CMakeFiles/CMakeTmp/testCCompiler.c
+Call Stack (most recent call first):
+  CMakeLists.txt:2 (project)
+
+
+CMake Error at /cygdrive/d/Data/Jetbrains/CLION/.CLion/system/cygwin_cmake/share/cmake-3.17.3/Modules/CMakeTestCCompiler.cmake:44 (try_compile):
+  Unknown extension ".c" for file
+
+    /cygdrive/d/CODE/C/XS/cmake-build-debug/CMakeFiles/CMakeTmp/testCCompiler.c
+
+  try_compile() works only for enabled languages.  Currently these are:
+
+    C CXX
+
+  See project() command to enable other languages.
+Call Stack (most recent call first):
+  CMakeLists.txt:2 (project)
+
+
+-- Check for working C compiler: /usr/bin/cc - broken
+CMake Error at /cygdrive/d/Data/Jetbrains/CLION/.CLion/system/cygwin_cmake/share/cmake-3.17.3/Modules/CMakeTestCCompiler.cmake:56 (file):
+  file failed to open for writing (No such file or directory):
+
+    /cygdrive/d/CODE/C/XS/cmake-build-debug/CMakeFiles/CMakeError.log
+Call Stack (most recent call first):
+  CMakeLists.txt:2 (project)
+
+
+CMake Error at /cygdrive/d/Data/Jetbrains/CLION/.CLion/system/cygwin_cmake/share/cmake-3.17.3/Modules/CMakeTestCCompiler.cmake:60 (message):
+  The C compiler
+
+    "/usr/bin/cc"
+
+  is not able to compile a simple test program.
+
+  It fails with the following output:
+
+    
+
+  
+
+  CMake will not be able to correctly generate this project.
+Call Stack (most recent call first):
+  CMakeLists.txt:2 (project)
+
+
+-- Configuring incomplete, errors occurred!
+CMake Error: Cannot open file for write: /cygdrive/d/CODE/C/XS/cmake-build-debug/CMakeCache.txt.tmp
+CMake Error: : System Error: No such file or directory
+CMake Error: Unable to open cache file for save. /cygdrive/d/CODE/C/XS/cmake-build-debug/CMakeCache.txt
+CMake Error: : System Error: No such file or directory
